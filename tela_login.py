@@ -1,10 +1,17 @@
 import tkinter as tk
+from tkinter import messagebox
 import tela_pedido
 
 def janela_pedido():
+    user = str(campo_login.get())
+    password = str(campo_senha.get())
+
+    if user == 'admin' and password == 'admin':
     #Escondendo tela de login
-    janela.withdraw()  
-    tela_pedido.abrir_janela()  
+        janela.withdraw()  
+        tela_pedido.abrir_janela() 
+    else:
+         messagebox.showerror("Erro", "Usuario ou Senha incorreto!")
 
 
 janela = tk.Tk()

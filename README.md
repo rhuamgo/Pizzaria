@@ -1,7 +1,7 @@
- ﻿#Pizzaria
- ##Programa de cadastramento de pedidos
- ##Função: usuário ira fazer o pedido de pizza
- ###Regra de negócio: 
+ ﻿# Pizzaria
+ ## Programa de cadastramento de pedidos
+ ## Função: usuário ira fazer o pedido de pizza
+ ### Regra de negócio: 
  * Usuário informa login e senha, sistema verifica se estiver correto move para outra pagina, se não ocorre um erro informando que os dados estão invalidos
 
  * Usuário informa ( telefone, nome, endereço) e aperta em okay

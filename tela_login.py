@@ -16,22 +16,23 @@ def janela_pedido():
 
 janela = tk.Tk()
 janela.title("Login")
-janela.geometry("400x400")
+janela.geometry("300x200")
 
 label_login = tk.Label(janela, text="Login: ")
-label_login.place(x=110, y=140)
+label_login.grid(row=0, column=0, padx=10, pady=10, sticky="e")
 
 campo_login = tk.Entry(janela)
-campo_login.place(x=150, y=140)
+campo_login.grid(row=0, column=1, padx=10, pady=10)
 
 label_senha = tk.Label(janela, text="Senha: ")
-label_senha.place(x=110, y=170)
+label_senha.grid(row=1, column=0, padx=10, pady=10, sticky="e")
 
 campo_senha = tk.Entry(janela, show="*")
-campo_senha.place(x=150, y=170)
+campo_senha.grid(row=1, column=1, padx=10, pady=10)
 
 #Chamando uma função na propria pg que esconde a tela atual e executa a função para abrir a outra janela de pedidos
 botao_entrar = tk.Button(janela, text="Entrar", command=janela_pedido)
-botao_entrar.place(x=150, y=200)
+botao_entrar.grid(row=2, column=0, columnspan=2, pady=10)
+
 
 janela.mainloop()

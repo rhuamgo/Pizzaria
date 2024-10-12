@@ -11,7 +11,7 @@ def janela_pedido():
         janela.withdraw()  
         tela_pedido.abrir_janela() 
     else:
-         messagebox.showerror("Erro", "Usuario ou Senha incorreto!")
+         messagebox.showerror("Erro", "Usuário ou senha incorretos!")
 
 
 janela = tk.Tk()

@@ -8,13 +8,14 @@ def janela_pedido():
     password = str(campo_senha.get())
 
     if user == 'admin' and password == 'admin':
-    #Escondendo tela de login
-        janela.withdraw()  
+        #Fechando Janela de Login e abrindo Janela de pedido
+        janela.destroy()
         tela_pedido.abrir_janela() 
+      
     else:
          messagebox.showerror("Erro", "Usuário ou senha incorretos!")
 
-#Configurando Janela de Login
+#Configurando e Estilizando Janela de Login
 janela = tk.Tk()
 janela.title("Login")
 janela.geometry("300x200")

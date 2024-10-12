@@ -1,3 +1,4 @@
+
 import tkinter as tk
 from tkinter import messagebox
 import tela_pedido
@@ -13,26 +14,30 @@ def janela_pedido():
     else:
          messagebox.showerror("Erro", "Usuário ou senha incorretos!")
 
-
+#Configurando Janela de Login
 janela = tk.Tk()
 janela.title("Login")
 janela.geometry("300x200")
+janela.configure(background= '#1e3743')
+janela.resizable(True, True)
+janela.maxsize(width= 350, height = 250)
+janela.minsize(width = 200, height = 200)
 
-label_login = tk.Label(janela, text="Login: ")
-label_login.grid(row=0, column=0, padx=10, pady=10, sticky="e")
+
+label_login = tk.Label(janela, text="LOGIN", bd=2, bg = '#107DB2' , fg = 'white' 
+                         , font = ('verdana', 8, 'bold'))
+label_login.pack(padx=10, pady=10)
 
 campo_login = tk.Entry(janela)
-campo_login.grid(row=0, column=1, padx=10, pady=10)
-
-label_senha = tk.Label(janela, text="Senha: ")
-label_senha.grid(row=1, column=0, padx=10, pady=10, sticky="e")
+campo_login.pack(padx=10, pady=10)
 
 campo_senha = tk.Entry(janela, show="*")
-campo_senha.grid(row=1, column=1, padx=10, pady=10)
+campo_senha.pack(padx=10, pady=10)
 
 #Chamando uma função na propria pg que esconde a tela atual e executa a função para abrir a outra janela de pedidos
-botao_entrar = tk.Button(janela, text="Entrar", command=janela_pedido)
-botao_entrar.grid(row=2, column=0, columnspan=2, pady=10)
+botao_entrar = tk.Button(janela, text="Entrar", bd=2, bg = '#107DB2' , fg = 'white' 
+                         , font = ('verdana', 8, 'bold') , command=janela_pedido)
+botao_entrar.pack(padx=10, pady=10)
 
 
 janela.mainloop()

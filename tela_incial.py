@@ -3,13 +3,14 @@ from tkinter import PhotoImage, messagebox
 import tela_login
 import tela_pedido
 
+#Função que chama o modulo login esconde o botão "Entrar", mostra o botão "Pedido" e escode a janela principal
 def abrir_login():
     botao_login.place_forget()
     botao_pedido.place(x=310, y=123)
     janela_incial.withdraw()
     tela_login.abrir_login(janela_incial)
 
-
+#Função que chama modulo pedido e esconde tela principal
 def abrir_pedido():
     janela_incial.withdraw()
     tela_pedido.abrir_pedido(janela_incial)
@@ -48,18 +49,21 @@ img_tela = tk.PhotoImage(file="PIZZARIA\\img\\tela.png")
 label_tela = tk.Label(frame_principal, image=img_tela)
 label_tela.pack(fill="both", expand=True)
 
+
 botao_login = tk.Button(frame_logo, text="Entrar", bd=2, bg = '#d72e4c', fg='white'
                         , font = ('verdana', 8, 'bold'), command=abrir_login)
 botao_login.place(x=250, y=123)
 
-
+#Inicia escondido e aparece executa a função abrir_login
 botao_pedido = tk.Button(frame_logo, text="Pedido", bd=2, bg = '#d72e4c', fg='white'
                         , font = ('verdana', 8, 'bold'), command=abrir_pedido)
 botao_pedido.place_forget()
 
+
 botao_info = tk.Button(frame_logo, text="Conato", bg = '#d72e4c', fg='white'
                         , font = ('verdana', 8, 'bold'))
 botao_info.place(x=375, y=123)
+
 
 janela_incial.mainloop()
 

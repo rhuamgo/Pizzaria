@@ -39,7 +39,7 @@ def abrir_login(janela_incial):
  campo_login.pack(padx=10, pady=10)
 
  campo_senha = tk.Entry(janela, show="*")
- campo_senha.pack(padx=10, pady=10)
+ campo_senha.pack(padx=10)
 
     #Chamando uma função na propria pg que esconde a tela atual e executa a função para abrir a outra janela de pedidos
  botao_entrar = tk.Button(janela, text="Entrar", bd=2, bg = '#d72e4c' , fg = 'white' 

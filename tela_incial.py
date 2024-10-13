@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import PhotoImage, messagebox
 import tela_login
 import tela_pedido
+import tela_contato
 
 #Função que chama o modulo login esconde o botão "Entrar", mostra o botão "Pedido" e escode a janela principal
 def abrir_login():
@@ -14,6 +15,10 @@ def abrir_login():
 def abrir_pedido():
     janela_incial.withdraw()
     tela_pedido.abrir_pedido(janela_incial)
+
+def abrir_contato():
+   janela_incial.withdraw()
+   tela_contato.abrir_contato(janela_incial)
 
 #Configurando janela 
 janela_incial = tk.Tk()
@@ -38,6 +43,8 @@ frame_logo.config(width=banner_logo.width(), height=banner_logo.height())
 label_banner = tk.Label(frame_logo, image=banner_logo)
 label_banner.pack(fill="x", expand=1)
 
+janela_incial.banner_logo = banner_logo
+
 #Criando frame para tela principal que ocupa todo espaço restante
 frame_principal = tk.Frame(janela_incial, bd=2, bg = '#c52f49')
 frame_principal.pack(fill="both", expand=1)
@@ -60,8 +67,8 @@ botao_pedido = tk.Button(frame_logo, text="Pedido", bd=2, bg = '#d72e4c', fg='wh
 botao_pedido.place_forget()
 
 
-botao_info = tk.Button(frame_logo, text="Conato", bg = '#d72e4c', fg='white'
-                        , font = ('verdana', 8, 'bold'))
+botao_info = tk.Button(frame_logo, text="Contato", bg = '#d72e4c', fg='white'
+                       , font = ('verdana', 8, 'bold'), command=abrir_contato)
 botao_info.place(x=375, y=123)
 
 

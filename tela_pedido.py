@@ -7,9 +7,9 @@ def abrir_pedido(janela_incial):
         janela_pedido.destroy()
         janela_incial.deiconify()
 
- janela_pedido = tk.Toplevel()  
+ janela_pedido = tk.Toplevel(janela_incial)  
  janela_pedido.title("Pedido")
- janela_pedido.geometry("400x400")
+ janela_pedido.geometry("400x450")
  janela_pedido.configure(background= '#eb4764')
  janela_pedido.resizable(False, False)
  janela_pedido.iconbitmap("PIZZARIA\\img\\icon.ico")

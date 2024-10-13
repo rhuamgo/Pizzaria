@@ -1,11 +1,11 @@
 import tkinter as tk
 
-def abrir_categoria():
+def abrir_categoria(janela_incial):
  def voltar():
     janela_categoria.destroy()
-    #janela_pedido.deiconify()
+    janela_incial.deiconify()
  
- janela_categoria = tk.Tk()
+ janela_categoria = tk.Toplevel(janela_incial)
  janela_categoria.title("Categorias")
  janela_categoria.geometry("600x250")
  janela_categoria.configure(background= '#eb4764')
@@ -51,5 +51,3 @@ def abrir_categoria():
  botao_voltar.place(x=250, y=200)
 
  janela_categoria.mainloop()
-
-abrir_categoria()

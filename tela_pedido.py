@@ -37,7 +37,7 @@ def abrir_pedido(janela_incial):
  botao_entrega.pack(padx=10, pady=10)
 
 
- botao_entrega = tk.Button(frame1, text="Retire", image=janela_pedido.img_retire, compound="top",
+ botao_entrega = tk.Button(frame1, text="Retirada", image=janela_pedido.img_retire, compound="top",
                           bd=3, bg="#d72e4c", fg="black", font=("verdana", 8, "bold"))
  botao_entrega.pack(padx=10, pady=10)
 

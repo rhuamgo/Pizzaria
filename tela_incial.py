@@ -39,7 +39,7 @@ label_banner = tk.Label(frame_logo, image=banner_logo)
 label_banner.pack(fill="x", expand=1)
 
 #Criando frame para tela principal que ocupa todo espaço restante
-frame_principal = tk.Frame(janela_incial)
+frame_principal = tk.Frame(janela_incial, bd=2, bg = '#c52f49')
 frame_principal.pack(fill="both", expand=1)
 
 #Guardando Img da tela inicial

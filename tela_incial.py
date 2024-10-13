@@ -15,7 +15,7 @@ frame_logo.pack(side="top", fill="x")
 frame_logo.pack_propagate(False)
 
 #Guardando Img do Banner na Variavel
-banner_logo = tk.PhotoImage(file="PIZZARIA\\img\\banner2.png")
+banner_logo = tk.PhotoImage(file="PIZZARIA\\img\\banner.png")
 
 #Ajustando Frame ao tamanho da imagem
 frame_logo.config(width=banner_logo.width(), height=banner_logo.height())

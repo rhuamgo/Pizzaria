@@ -6,7 +6,7 @@ def abrir_janela():
     janela_pedido.geometry("400x400")
     janela_pedido.configure(background= '#1e3743')
     janela_pedido.resizable(False, False)
-    janela_pedido.iconbitmap("icon.ico")
+    janela_pedido.iconbitmap("PIZZARIA\img\icon.ico")
    
     frame1=tk.Frame(janela_pedido, bd = 4, bg = '#dfe3ee',
                      highlightbackground= '#759fe6', highlightthickness= 3 )

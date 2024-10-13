@@ -23,7 +23,7 @@ janela.configure(background= '#1e3743')
 janela.resizable(True, True)
 janela.maxsize(width= 350, height = 250)
 janela.minsize(width = 200, height = 200)
-janela.iconbitmap("icon.ico")
+janela.iconbitmap("PIZZARIA\img\icon.ico")
 
 label_login = tk.Label(janela, text="LOGIN", bd=2, bg = '#107DB2' , fg = 'white' 
                          , font = ('verdana', 8, 'bold'))

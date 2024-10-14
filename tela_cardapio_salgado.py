@@ -1,11 +1,13 @@
 from optparse import Values
 import tkinter as tk
 
-def abrir_cardapio_salgado():
+def abrir_cardapio_salgado(janela_categoria):
  def voltar():
     janela_salgado.destroy()
-    #janela_categoria.deiconify()
- janela_salgado = tk.Tk()
+    janela_categoria.deiconify()
+
+    
+ janela_salgado = tk.Toplevel(janela_categoria)
  janela_salgado.title("Cardapio Pizzas Salgadas")
  janela_salgado.geometry("650x600")
  janela_salgado.configure(background= '#eb4764')
@@ -288,11 +290,6 @@ def abrir_cardapio_salgado():
  botao_voltar.place(x=270, y=520)
 
 
- janela_salgado.mainloop()
 
 
 
-
-
-
-abrir_cardapio_salgado()

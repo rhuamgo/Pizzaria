@@ -18,8 +18,8 @@ def abrir_categoria():
     tela_categoria.abrir_categoria(janela_incial)
 
 def abrir_contato():
-   janela_incial.withdraw()
-   tela_contato.abrir_contato(janela_incial)
+    janela_incial.withdraw()
+    tela_contato.abrir_contato(janela_incial)
 
 #Configurando janela 
 janela_incial = tk.Tk()

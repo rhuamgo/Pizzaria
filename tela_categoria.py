@@ -1,10 +1,15 @@
 import tkinter as tk
+import tela_cardapio_salgado
 
 def abrir_categoria(janela_incial):
  def voltar():
     janela_categoria.destroy()
     janela_incial.deiconify()
  
+ def cardapio_salgado():
+      janela_categoria.withdraw()
+      tela_cardapio_salgado.abrir_cardapio_salgado(janela_categoria)
+
  janela_categoria = tk.Toplevel(janela_incial)
  janela_categoria.title("Categorias")
  janela_categoria.geometry("600x250")
@@ -33,7 +38,7 @@ def abrir_categoria(janela_incial):
  
 
  botao_entrega = tk.Button(frame1, text="Pizzas Salgadas", image=janela_categoria.img_salgada, compound="top",
-                          bd=3, bg="#d72e4c", fg="black", font=("verdana", 8, "bold"))
+                          bd=3, bg="#d72e4c", fg="black", font=("verdana", 8, "bold"), command=cardapio_salgado)
  botao_entrega.place(x=50, y=65)
 
  botao_entrega = tk.Button(frame1, text="Pizzas Doces", image=janela_categoria.img_doce, compound="top",

@@ -132,25 +132,25 @@ def abrir_cardapio_salgado(janela_categoria):
 
 #Entry de Quantidades
  
- entry_item1 = tk.Entry(frame, bg="#a95b6e")
+ entry_item1 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_item1.place(x=380, y= 130, width=40, height=18)
 
- entry_item2 = tk.Entry(frame, bg="#a95b6e")
+ entry_item2 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_item2.place(x=380, y= 150, width=40, height=18)
 
- entry_item3 = tk.Entry(frame, bg="#a95b6e")
+ entry_item3 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_item3.place(x=380, y= 170, width=40, height=18)
 
- entry_item4 = tk.Entry(frame, bg="#a95b6e")
+ entry_item4 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_item4.place(x=380, y= 190, width=40, height=18)
 
- entry_item5 = tk.Entry(frame, bg="#a95b6e")
+ entry_item5 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_item5.place(x=380, y= 210, width=40, height=18)
 
- entry_item6 = tk.Entry(frame, bg="#a95b6e")
+ entry_item6 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_item6.place(x=380, y= 230, width=40, height=18)
 
- entry_item7 = tk.Entry(frame, bg="#a95b6e")
+ entry_item7 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_item7.place(x=380, y= 250, width=40, height=18)
 
 ###############################################################
@@ -202,7 +202,7 @@ def abrir_cardapio_salgado(janela_categoria):
 
 
 
- #Menus de Quantidade
+ #Menus de Tamanho
  menu1_especial = tk.StringVar()
  menu1_especial.set("Tamanho")  
 
@@ -262,25 +262,25 @@ def abrir_cardapio_salgado(janela_categoria):
 
 #Entry de Quantidades
  
- entry_especial1 = tk.Entry(frame, bg="#a95b6e")
+ entry_especial1 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_especial1.place(x=380, y= 360, width=40, height=18)
 
- entry_especial2 = tk.Entry(frame, bg="#a95b6e")
+ entry_especial2 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_especial2.place(x=380, y= 380, width=40, height=18)
 
- entry_especial3 = tk.Entry(frame, bg="#a95b6e")
+ entry_especial3 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_especial3.place(x=380, y= 400, width=40, height=18)
 
- entry_especial4 = tk.Entry(frame, bg="#a95b6e")
+ entry_especial4 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_especial4.place(x=380, y= 420, width=40, height=18)
 
- entry_especial5 = tk.Entry(frame, bg="#a95b6e")
+ entry_especial5 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_especial5.place(x=380, y= 440, width=40, height=18)
 
- entry_especial6 = tk.Entry(frame, bg="#a95b6e")
+ entry_especial6 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_especial6.place(x=380, y= 460, width=40, height=18)
 
- entry_especial7 = tk.Entry(frame, bg="#a95b6e")
+ entry_especial7 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_especial7.place(x=380, y= 480, width=40, height=18)
 
 

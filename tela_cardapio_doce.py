@@ -5,9 +5,9 @@ import tela_confirmar_pedido
 import tela_cardapio_salgado
 
 
-Pizzas_adicionadas = tela_cardapio_salgado.Pizzas_adicionadas
+
 def abrir_cardapio_doce(janela_categoria):
- 
+
  #Função para VOltar para categorias
  def voltar():
     janela_doce.destroy()
@@ -31,8 +31,9 @@ def abrir_cardapio_doce(janela_categoria):
       if item > 0:
          
          if tamanho[i] !='Tamanho':
-            
-            ##pizza = f"{sabores[i]} - {tamanho[i]} - {item} unide"
+            #atualizando para chamar dentro da função para ela ficar sendo atualizada sempre com o valor atual
+            Pizzas_adicionadas = tela_cardapio_salgado.Pizzas_adicionadas
+
             pizza = [sabores[i], tamanho[i], item]
            
             
@@ -44,6 +45,7 @@ def abrir_cardapio_doce(janela_categoria):
 
   
     if Pizzas_adicionadas != []:
+         
          print(Pizzas_adicionadas)
          janela_doce.destroy()
          janela_categoria.deiconify()
@@ -68,8 +70,9 @@ def abrir_cardapio_doce(janela_categoria):
       if item > 0:
          
          if tamanho[i] !='Tamanho':
-            
-            ##pizza = f"{sabores[i]} - {tamanho[i]} - {item} unide"
+            #atualizando para chamar dentro da função para ela ficar sendo atualizada sempre com o valor atual
+            Pizzas_adicionadas = tela_cardapio_salgado.Pizzas_adicionadas
+
             pizza = [sabores[i], tamanho[i], item]
            
             
@@ -82,6 +85,7 @@ def abrir_cardapio_doce(janela_categoria):
   
     if Pizzas_adicionadas != []:
          print(Pizzas_adicionadas)
+         janela_doce.withdraw()
          tela_confirmar_pedido.confirmar_pedido(janela_doce,Pizzas_adicionadas)
     else:
        messagebox.showerror("ERRO",'Selecione ao menos uma Pizza antes de Continuar')

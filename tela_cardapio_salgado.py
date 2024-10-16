@@ -35,7 +35,7 @@ def abrir_cardapio_salgado(janela_categoria):
          
          if tamanho[i] !='Tamanho':
             
-            ##pizza = f"{sabores[i]} - {tamanho[i]} - {item} unide"
+
             pizza = [sabores[i], tamanho[i], item]
            
             
@@ -75,7 +75,7 @@ def abrir_cardapio_salgado(janela_categoria):
          
          if tamanho[i] !='Tamanho':
             
-            ##pizza = f"{sabores[i]} - {tamanho[i]} - {item} unide"
+
             pizza = [sabores[i], tamanho[i], item]
            
             
@@ -87,7 +87,9 @@ def abrir_cardapio_salgado(janela_categoria):
 
   
     if Pizzas_adicionadas != []:
+         
          print(Pizzas_adicionadas)
+         janela_salgado.withdraw()
          tela_confirmar_pedido.confirmar_pedido(janela_salgado,Pizzas_adicionadas)
     else:
        messagebox.showerror("ERRO",'Selecione ao menos uma Pizza antes de Continuar')

@@ -1,11 +1,18 @@
 import tkinter as tk
 from tkinter import ttk
+import tela_cardapio_salgado
 
 
-def confirmar_pedido(janela_salgado,pizzas):
-
+def confirmar_pedido(janela,pizzas):
+  #Função para VOltar para categorias
+    def voltar():
+        tela_cardapio_salgado.Pizzas_adicionadas =[]
+        janela_confirmar.destroy()
+        janela.deiconify()
+  
+        print("Array esvaziado:", tela_cardapio_salgado.Pizzas_adicionadas)
     # Criando a janela principal
-    janela_confirmar = tk.Toplevel(janela_salgado)
+    janela_confirmar = tk.Toplevel(janela)
     janela_confirmar.title("Confirmar Pedido")
     janela_confirmar.geometry("650x600")
     janela_confirmar.configure(background='#eb4764')
@@ -50,4 +57,7 @@ def confirmar_pedido(janela_salgado,pizzas):
     for (sabor, tamanho, quantidade) in lista:
         tw.insert("", "end", values=(sabor, tamanho, quantidade))
 
-
+    #Botão Cancelar
+    botap_cancelar = tk.Button(janela_confirmar, text="Cencelar", bd=2, bg = '#c52f49' , fg = 'white' 
+                            , font = ('verdana', 8, 'bold'), command=voltar)
+    botap_cancelar.place(x=100, y=520)

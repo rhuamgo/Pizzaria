@@ -1,5 +1,7 @@
 import tkinter as tk
 import tela_cardapio_salgado
+import tela_cardapio_doce
+import tela_cardapio_bebidas
 
 def abrir_categoria(janela_incial):
  def voltar():
@@ -9,6 +11,15 @@ def abrir_categoria(janela_incial):
  def cardapio_salgado():
       janela_categoria.withdraw()
       tela_cardapio_salgado.abrir_cardapio_salgado(janela_categoria)
+ 
+ def cardapio_doce():
+      janela_categoria.withdraw()
+      tela_cardapio_doce.abrir_cardapio_doce(janela_categoria)
+
+ def cardapio_bebida():
+      janela_categoria.withdraw()
+      tela_cardapio_bebidas.abrir_cardapio_bebidas(janela_categoria)
+
 
  janela_categoria = tk.Toplevel(janela_incial)
  janela_categoria.title("Categorias")
@@ -42,11 +53,11 @@ def abrir_categoria(janela_incial):
  botao_entrega.place(x=50, y=65)
 
  botao_entrega = tk.Button(frame1, text="Pizzas Doces", image=janela_categoria.img_doce, compound="top",
-                          bd=3, bg="#d72e4c", fg="black", font=("verdana", 8, "bold"))
+                          bd=3, bg="#d72e4c", fg="black", font=("verdana", 8, "bold"), command=cardapio_doce)
  botao_entrega.place(x=200, y=65)
 
  botao_entrega = tk.Button(frame1, text="Bebidas", image=janela_categoria.img_bebidas, compound="top",
-                          bd=3, bg="#d72e4c", fg="black", font=("verdana", 8, "bold"))
+                          bd=3, bg="#d72e4c", fg="black", font=("verdana", 8, "bold"), command=cardapio_bebida)
  botao_entrega.place(x=350, y=65)
 
 

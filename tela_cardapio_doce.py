@@ -2,32 +2,29 @@ from optparse import Values
 import tkinter as tk
 from tkinter import messagebox
 import tela_confirmar_pedido
+import tela_cardapio_salgado
 
 
-
-Pizzas_adicionadas = []
-def abrir_cardapio_salgado(janela_categoria):
+Pizzas_adicionadas = tela_cardapio_salgado.Pizzas_adicionadas
+def abrir_cardapio_doce(janela_categoria):
  
  #Função para VOltar para categorias
  def voltar():
-    janela_salgado.destroy()
+    janela_doce.destroy()
     janela_categoria.deiconify()
 
 #Função para Voltar para tela de categoria mas adicionando os produtos
  def continuar_comprando():
 
 
-    tamanho = [menu1.get(), menu2.get(), menu3.get(), menu4.get(), menu5.get(), menu6.get(), menu7.get(), menu1_especial.get(),menu2_especial.get(),menu3_especial.get(),menu4_especial.get(),menu5_especial.get(),menu6_especial.get(),menu7_especial.get()]
+    tamanho = [menu1.get(), menu2.get(), menu3.get(), menu4.get(), menu5.get(), menu6.get(), menu7.get()]
 
 
     
-    sabores = ['CALABRESA','TRADICIONAL','LA CASA', 'FRANGO', 'LOMBO', 'PALMITO', 'PEPERONE',
-               "BAURU", "BRASILEIRA", "CARNE SECA", "IV QUEIJOS", "MODINHA", "TOSCANA","CALABRESA II"]
+    sabores = ['M&Ms','BANANA SHOW','BRIGADEIRO', 'OREO', 'OURO BRANCO', 'PRESTIGIO', 'GOIABADA']
 
     Quantidade = [int(entry_item1.get()), int(entry_item2.get()), int(entry_item3.get()), int(entry_item4.get()),
-                   int(entry_item5.get()), int(entry_item6.get()), int(entry_item7.get()),int(entry_especial1.get()),
-                     int(entry_especial2.get()),int(entry_especial3.get())
-                        ,int(entry_especial4.get()),int(entry_especial5.get()),int(entry_especial6.get()),int(entry_especial7.get())]
+                   int(entry_item5.get()), int(entry_item6.get()), int(entry_item7.get())]
     i = 0
     for item in Quantidade:
 
@@ -48,7 +45,7 @@ def abrir_cardapio_salgado(janela_categoria):
   
     if Pizzas_adicionadas != []:
          print(Pizzas_adicionadas)
-         janela_salgado.destroy()
+         janela_doce.destroy()
          janela_categoria.deiconify()
     else:
        messagebox.showerror("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
@@ -57,17 +54,14 @@ def abrir_cardapio_salgado(janela_categoria):
  def abri_final():
 
 
-    tamanho = [menu1.get(), menu2.get(), menu3.get(), menu4.get(), menu5.get(), menu6.get(), menu7.get(), menu1_especial.get(),menu2_especial.get(),menu3_especial.get(),menu4_especial.get(),menu5_especial.get(),menu6_especial.get(),menu7_especial.get()]
+    tamanho = [menu1.get(), menu2.get(), menu3.get(), menu4.get(), menu5.get(), menu6.get(), menu7.get()]
 
 
     
-    sabores = ['CALABRESA','TRADICIONAL','LA CASA', 'FRANGO', 'LOMBO', 'PALMITO', 'PEPERONE',
-               "BAURU", "BRASILEIRA", "CARNE SECA", "IV QUEIJOS", "MODINHA", "TOSCANA","CALABRESA II"]
+    sabores = ['M&Ms','BANANA SHOW','BRIGADEIRO', 'OREO', 'OURO BRANCO', 'PRESTIGIO', 'GOIABADA']
 
     Quantidade = [int(entry_item1.get()), int(entry_item2.get()), int(entry_item3.get()), int(entry_item4.get()),
-                   int(entry_item5.get()), int(entry_item6.get()), int(entry_item7.get()),int(entry_especial1.get()),
-                     int(entry_especial2.get()),int(entry_especial3.get())
-                        ,int(entry_especial4.get()),int(entry_especial5.get()),int(entry_especial6.get()),int(entry_especial7.get())]
+                   int(entry_item5.get()), int(entry_item6.get()), int(entry_item7.get())]
     i = 0
     for item in Quantidade:
 
@@ -88,26 +82,26 @@ def abrir_cardapio_salgado(janela_categoria):
   
     if Pizzas_adicionadas != []:
          print(Pizzas_adicionadas)
-         tela_confirmar_pedido.confirmar_pedido(janela_salgado,Pizzas_adicionadas)
+         tela_confirmar_pedido.confirmar_pedido(janela_doce,Pizzas_adicionadas)
     else:
        messagebox.showerror("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
 
 
     
- janela_salgado = tk.Toplevel(janela_categoria)
- janela_salgado.title("Cardapio Pizzas Salgadas")
- janela_salgado.geometry("650x600")
- janela_salgado.configure(background= '#eb4764')
- janela_salgado.resizable(False, False)
- janela_salgado.iconbitmap("PIZZARIA\\img\\icon.ico")
+ janela_doce = tk.Toplevel(janela_categoria)
+ janela_doce.title("Cardapio Pizzas Doces")
+ janela_doce.geometry("650x600")
+ janela_doce.configure(background= '#eb4764')
+ janela_doce.resizable(False, False)
+ janela_doce.iconbitmap("PIZZARIA\\img\\icon.ico")
   
  #Criando frame da tela de pizzas salgadas
- frame=tk.Frame(janela_salgado, bd = 4, bg = '#c95b6e',
+ frame=tk.Frame(janela_doce, bd = 4, bg = '#c95b6e',
                      highlightbackground= '#c52f49', highlightthickness= 3 )
  frame.place(relx=0.02, rely=0.02, relwidth= 0.96, relheight = 0.96)
  
  #Titulo da pagina
- titulo_label = tk.Label(frame, text="Pizzas Salgadas", bg= '#c52f49', fg='white'
+ titulo_label = tk.Label(frame, text="Pizzas Doces", bg= '#c52f49', fg='white'
                     , font = ('Arial Black', 16, "bold",'underline'))
  titulo_label.pack(padx=10, pady=10)
  
@@ -130,7 +124,7 @@ def abrir_cardapio_salgado(janela_categoria):
  quantidade_label.place(x=360, y= 100)
 
  #Sabores das Pizzas
- sabores = ["CALABRESA", "TRADICIONAL", "LA CASA", "FRANGO", "LOMBO", "PALMITO", "PEPERONE",]
+ sabores = ['M&Ms','BANANA SHOW','BRIGADEIRO', 'OREO', 'OURO BRANCO', 'PRESTIGIO', 'GOIABADA']
     
  for idx, sabor in enumerate(sabores):
    item_label = tk.Label(frame, text=sabor, bg='#c95b6e', fg='black', font=('Arial', 9, 'bold'))
@@ -214,114 +208,6 @@ def abrir_cardapio_salgado(janela_categoria):
 
  entry_item7 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_item7.place(x=380, y= 250, width=40, height=18)
-
-
- #Titulos dos Sabores Especiais
- especial_label = tk.Label(frame,text="Pizzas Especiais", bg= '#c52f49', fg='white'
-                    , font = ('Arial', 12, "bold"))
- especial_label.place(x=220, y= 300)
-
- saborEsp_label = tk.Label(frame,text="Sabor", bg= '#c52f49', fg='black'
-                    , font = ('Arial', 11, "bold"))
- saborEsp_label.place(x=160, y= 330)
- 
- tamanhoEsp_label = tk.Label(frame,text="Tamanho", bg= '#c52f49', fg='black'
-                    , font = ('Arial', 11, 'bold'))
- tamanhoEsp_label.place(x=260, y= 330)
-
- quantidadeEsp_label = tk.Label(frame,text="Quantidade", bg= '#c52f49', fg='black'
-                    , font = ('Arial', 11, 'bold'))
- quantidadeEsp_label.place(x=360, y= 330)
-
-
- #Sabores das pizzas Especiais
- sabores = ["BAURU", "BRASILEIRA", "CARNE SECA", "IV QUEIJOS", "MODINHA", "TOSCANA","CALABRESA II"]
- for idx, sabor in enumerate(sabores):
-      item_label = tk.Label(frame, text=sabor, bg='#c95b6e', fg='black', font=('Arial', 9, 'bold'))
-      item_label.place(x=150, y=360 + idx * 20)
-
-
-
- #Menus de Tamanho das Pizzas especiais
- menu1_especial = tk.StringVar()
- menu1_especial.set("Tamanho")  
-
- menu2_especial = tk.StringVar()
- menu2_especial.set("Tamanho")  
-
- menu3_especial = tk.StringVar()
- menu3_especial.set("Tamanho")  
-
- menu4_especial = tk.StringVar()
- menu4_especial.set("Tamanho")  
-
- menu5_especial = tk.StringVar()
- menu5_especial.set("Tamanho")  
-
- menu6_especial = tk.StringVar()
- menu6_especial.set("Tamanho")  
-
- menu7_especial = tk.StringVar()
- menu7_especial.set("Tamanho")
-
- menu_especial1 =tk.OptionMenu(frame, menu1_especial ,"Grande", "Media", "Broto")
- menu_especial1.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial1["menu"].config(fg="black", bg="#c95b6e")
- menu_especial1.place(x=250, y= 360, width=88, height=20) 
-
-
- menu_especial2 =tk.OptionMenu(frame, menu2_especial ,"Grande", "Media", "Broto")
- menu_especial2.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial2["menu"].config(fg="black", bg="#c95b6e")
- menu_especial2.place(x=250, y=380, width=88, height=20)
-
- menu_especial3 =tk.OptionMenu(frame, menu3_especial ,"Grande", "Media", "Broto")
- menu_especial3.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial3["menu"].config(fg="black", bg="#c95b6e")
- menu_especial3.place(x=250, y=400, width=88, height=20)
-
- menu_especial4 =tk.OptionMenu(frame, menu4_especial ,"Grande", "Media", "Broto")
- menu_especial4.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial4["menu"].config(fg="black", bg="#c95b6e")
- menu_especial4.place(x=250, y=420, width=88, height=20)
-
- menu_especial5 =tk.OptionMenu(frame, menu5_especial ,"Grande", "Media", "Broto")
- menu_especial5.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial5["menu"].config(fg="black", bg="#c95b6e")
- menu_especial5.place(x=250, y=440, width=88, height=20)
-
- menu_especial6 =tk.OptionMenu(frame, menu6_especial ,"Grande", "Media", "Broto")
- menu_especial6.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial6["menu"].config(fg="black", bg="#c95b6e")
- menu_especial6.place(x=250, y=460, width=88, height=20)
-
- menu_especial7 =tk.OptionMenu(frame, menu7_especial ,"Grande", "Media", "Broto")
- menu_especial7.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial7["menu"].config(fg="black", bg="#c95b6e")
- menu_especial7.place(x=250, y=480, width=88, height=20)
-
-#Caixa de quantiade das Pizzas especiais
- entry_especial1 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial1.place(x=380, y= 360, width=40, height=18)
-
- entry_especial2 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial2.place(x=380, y= 380, width=40, height=18)
-
- entry_especial3 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial3.place(x=380, y= 400, width=40, height=18)
-
- entry_especial4 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial4.place(x=380, y= 420, width=40, height=18)
-
- entry_especial5 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial5.place(x=380, y= 440, width=40, height=18)
-
- entry_especial6 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial6.place(x=380, y= 460, width=40, height=18)
-
- entry_especial7 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial7.place(x=380, y= 480, width=40, height=18)
-
 
 #Botão Cancelar
  botap_cancelar = tk.Button(frame, text="Voltar", bd=2, bg = '#c52f49' , fg = 'white' 

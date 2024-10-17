@@ -1,6 +1,6 @@
 from optparse import Values
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import END, messagebox
 import tela_confirmar_pedido
 
 
@@ -42,7 +42,8 @@ def abrir_cardapio_salgado(janela_categoria):
             Pizzas_adicionadas.append(pizza)
             
          else:
-            messagebox.showerror("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
+            messagebox.showinfo("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
+            return
       i +=1
 
   
@@ -50,8 +51,9 @@ def abrir_cardapio_salgado(janela_categoria):
          print(Pizzas_adicionadas)
          janela_salgado.destroy()
          janela_categoria.deiconify()
+         
     else:
-       messagebox.showerror("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
+       messagebox.showinfo("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
 
 #Função para ir para tela de pagamento
  def abri_final():
@@ -68,6 +70,16 @@ def abrir_cardapio_salgado(janela_categoria):
                    int(entry_item5.get()), int(entry_item6.get()), int(entry_item7.get()),int(entry_especial1.get()),
                      int(entry_especial2.get()),int(entry_especial3.get())
                         ,int(entry_especial4.get()),int(entry_especial5.get()),int(entry_especial6.get()),int(entry_especial7.get())]
+    
+    #Array para zerar os valores dos campos dps que for para outra tela (caso volte)
+    Quantidades = [entry_item1, entry_item2, entry_item3, entry_item4,
+                   entry_item5, entry_item6, entry_item7,entry_especial1,
+                     entry_especial2,entry_especial3
+                        ,entry_especial4,entry_especial5,entry_especial6,entry_especial7]
+    
+    tamanhos = [menu1, menu2, menu3, menu4, menu5, menu6,menu7, menu1_especial
+               ,menu2_especial,menu3_especial,menu4_especial,menu5_especial,menu6_especial,menu7_especial]
+   
     i = 0
     for item in Quantidade:
 
@@ -82,17 +94,21 @@ def abrir_cardapio_salgado(janela_categoria):
             Pizzas_adicionadas.append(pizza)
             
          else:
-            messagebox.showerror("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
+            messagebox.showinfo("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
+            return
       i +=1
 
   
     if Pizzas_adicionadas != []:
-         
+         for valor in Quantidades:
+            valor.configure(values=(0,1,2,3,4,5))
+         for tamanho in tamanhos:
+            tamanho.set('Tamanho')
          print(Pizzas_adicionadas)
          janela_salgado.withdraw()
          tela_confirmar_pedido.confirmar_pedido(janela_salgado,Pizzas_adicionadas)
     else:
-       messagebox.showerror("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
+       messagebox.showinfo("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
 
 
     

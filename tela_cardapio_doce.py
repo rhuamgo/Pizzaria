@@ -15,6 +15,8 @@ def abrir_cardapio_doce(janela_categoria):
 
 #Função para Voltar para tela de categoria mas adicionando os produtos
  def continuar_comprando():
+     #atualizando para chamar dentro da função para ela ficar sendo atualizada sempre com o valor atual
+    Pizzas_adicionadas = tela_cardapio_salgado.Pizzas_adicionadas
 
 
     tamanho = [menu1.get(), menu2.get(), menu3.get(), menu4.get(), menu5.get(), menu6.get(), menu7.get()]
@@ -31,8 +33,6 @@ def abrir_cardapio_doce(janela_categoria):
       if item > 0:
          
          if tamanho[i] !='Tamanho':
-            #atualizando para chamar dentro da função para ela ficar sendo atualizada sempre com o valor atual
-            Pizzas_adicionadas = tela_cardapio_salgado.Pizzas_adicionadas
 
             pizza = [sabores[i], tamanho[i], item]
            
@@ -40,7 +40,8 @@ def abrir_cardapio_doce(janela_categoria):
             Pizzas_adicionadas.append(pizza)
             
          else:
-            messagebox.showerror("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
+            messagebox.showinfo("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
+            return
       i +=1
 
   
@@ -50,11 +51,12 @@ def abrir_cardapio_doce(janela_categoria):
          janela_doce.destroy()
          janela_categoria.deiconify()
     else:
-       messagebox.showerror("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
+       messagebox.showinfo("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
 
 #Função para ir para tela de pagamento
  def abri_final():
-
+   #Atualizando para chamar dentro da função para ela ficar sendo atualizada sempre com o valor atual
+    Pizzas_adicionadas = tela_cardapio_salgado.Pizzas_adicionadas
 
     tamanho = [menu1.get(), menu2.get(), menu3.get(), menu4.get(), menu5.get(), menu6.get(), menu7.get()]
 
@@ -64,14 +66,21 @@ def abrir_cardapio_doce(janela_categoria):
 
     Quantidade = [int(entry_item1.get()), int(entry_item2.get()), int(entry_item3.get()), int(entry_item4.get()),
                    int(entry_item5.get()), int(entry_item6.get()), int(entry_item7.get())]
+    
+    
+    tamanhos = [menu1, menu2, menu3, menu4, menu5, menu6, menu7]
+    
+    Quantidades = [entry_item1, entry_item2, entry_item3, entry_item4,entry_item5, entry_item6, entry_item7]
+      
+    
+    
     i = 0
     for item in Quantidade:
 
       if item > 0:
          
          if tamanho[i] !='Tamanho':
-            #atualizando para chamar dentro da função para ela ficar sendo atualizada sempre com o valor atual
-            Pizzas_adicionadas = tela_cardapio_salgado.Pizzas_adicionadas
+
 
             pizza = [sabores[i], tamanho[i], item]
            
@@ -79,16 +88,22 @@ def abrir_cardapio_doce(janela_categoria):
             Pizzas_adicionadas.append(pizza)
             
          else:
-            messagebox.showerror("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
+            messagebox.showinfo("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
+            return
       i +=1
 
   
     if Pizzas_adicionadas != []:
-         print(Pizzas_adicionadas)
+         for tamanho in tamanhos:
+            tamanho.set('Tamanho')
+
+         for quantidade in Quantidades:
+            quantidade.configure(values=(0,1,2,3,4,5))
          janela_doce.withdraw()
          tela_confirmar_pedido.confirmar_pedido(janela_doce,Pizzas_adicionadas)
+
     else:
-       messagebox.showerror("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
+       messagebox.showinfo("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
 
 
     
@@ -105,7 +120,7 @@ def abrir_cardapio_doce(janela_categoria):
  frame.place(relx=0.02, rely=0.02, relwidth= 0.96, relheight = 0.96)
  
  #Titulo da pagina
- titulo_label = tk.Label(frame, text="Pizzas Doces", bg= '#c52f49', fg='white'
+ titulo_label = tk.Label(frame, text="Pizzas Doces R$30", bg= '#c52f49', fg='white'
                     , font = ('Arial Black', 16, "bold",'underline'))
  titulo_label.pack(padx=10, pady=10)
  

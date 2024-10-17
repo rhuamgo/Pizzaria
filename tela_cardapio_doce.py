@@ -1,6 +1,7 @@
 from optparse import Values
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import ttk
 import tela_confirmar_pedido
 import tela_cardapio_salgado
 
@@ -120,7 +121,7 @@ def abrir_cardapio_doce(janela_categoria):
  frame.place(relx=0.02, rely=0.02, relwidth= 0.96, relheight = 0.96)
  
  #Titulo da pagina
- titulo_label = tk.Label(frame, text="Pizzas Doces R$30", bg= '#c52f49', fg='white'
+ titulo_label = tk.Label(frame, text="Pizzas Doces", bg= '#c52f49', fg='white'
                     , font = ('Arial Black', 16, "bold",'underline'))
  titulo_label.pack(padx=10, pady=10)
  
@@ -227,6 +228,46 @@ def abrir_cardapio_doce(janela_categoria):
 
  entry_item7 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_item7.place(x=380, y= 250, width=40, height=18)
+################################################################################
+ #Titulos dos Sabores Especiais
+ especial_label = tk.Label(frame,text="Tabela de Preços", bg= '#c52f49', fg='white'
+                    , font = ('Arial', 12, "bold"))
+ especial_label.place(x=220, y= 315)
+
+ #Criando e estilizando 
+ estilo = ttk.Style()
+ estilo.theme_use('default') 
+ estilo.configure("Treeview",
+                     background="#c95b6e",
+                     foreground="black",
+                     rowheight=25,
+                     fieldbackground="#c95b6e")
+
+ estilo.configure("Treeview.Heading",
+                     background="#d72e4c",
+                     foreground="white",
+                     font=('verdana', 10, 'bold'))
+     
+ def block_selection(event):
+    tw.selection_remove(tw.selection())
+ lista = [['Grande', 'R$ 38,00' ], ['Media', 'R$ 26,00'], ['Broto', 'R$ 18,00']]
+
+ tw = ttk.Treeview(frame, columns=('Tamanhos', 'Valores'), show='headings', height=3)
+    
+    # Configurando as colunas
+ tw.column('Tamanhos', minwidth=0, width=110, anchor='center')
+ tw.column('Valores', minwidth=0, width=70, anchor='center')
+
+ 
+    # Definindo os títulos das colunas
+ tw.heading('Tamanhos', text='Tamanhos')
+ tw.heading('Valores', text='Valores')
+ tw.place(x=200, y=355)
+
+ for (tamanho, valor) in lista:
+        tw.insert("", "end", values=(tamanho, valor))
+ 
+ tw.bind("<<TreeviewSelect>>", block_selection)
 
 #Botão Cancelar
  botap_cancelar = tk.Button(frame, text="Voltar", bd=2, bg = '#c52f49' , fg = 'white' 

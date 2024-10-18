@@ -24,13 +24,17 @@ def abrir_cardapio_salgado(janela_categoria):
     sabores = ['CALABRESA','TRADICIONAL','LA CASA', 'FRANGO', 'LOMBO', 'PALMITO', 'PEPERONE',
                "BAURU", "BRASILEIRA", "CARNE SECA", "IV QUEIJOS", "MODINHA", "TOSCANA","CALABRESA II"]
 
-    Quantidade = [int(entry_item1.get()), int(entry_item2.get()), int(entry_item3.get()), int(entry_item4.get()),
-                   int(entry_item5.get()), int(entry_item6.get()), int(entry_item7.get()),int(entry_especial1.get()),
-                     int(entry_especial2.get()),int(entry_especial3.get())
-                        ,int(entry_especial4.get()),int(entry_especial5.get()),int(entry_especial6.get()),int(entry_especial7.get())]
+    Quantidade = [entry_item1.get(), entry_item2.get(), entry_item3.get(), entry_item4.get(),
+                   entry_item5.get(), entry_item6.get(), entry_item7.get(),entry_especial1.get(),
+                     entry_especial2.get(),entry_especial3.get()
+                        ,entry_especial4.get(),entry_especial5.get(),entry_especial6.get(),entry_especial7.get()]
     i = 0
     for item in Quantidade:
-
+      try:
+         item =int(item)
+      except:
+          messagebox.showerror("ERRO", "Informe um valor Valido")
+          return
       if item > 0:
          
          if tamanho[i] !='Tamanho':
@@ -66,10 +70,10 @@ def abrir_cardapio_salgado(janela_categoria):
     sabores = ['CALABRESA','TRADICIONAL','LA CASA', 'FRANGO', 'LOMBO', 'PALMITO', 'PEPERONE',
                "BAURU", "BRASILEIRA", "CARNE SECA", "IV QUEIJOS", "MODINHA", "TOSCANA","CALABRESA II"]
 
-    Quantidade = [int(entry_item1.get()), int(entry_item2.get()), int(entry_item3.get()), int(entry_item4.get()),
-                   int(entry_item5.get()), int(entry_item6.get()), int(entry_item7.get()),int(entry_especial1.get()),
-                     int(entry_especial2.get()),int(entry_especial3.get())
-                        ,int(entry_especial4.get()),int(entry_especial5.get()),int(entry_especial6.get()),int(entry_especial7.get())]
+    Quantidade = [entry_item1.get(), entry_item2.get(), entry_item3.get(), entry_item4.get(),
+                   entry_item5.get(), entry_item6.get(), entry_item7.get(),entry_especial1.get(),
+                     entry_especial2.get(),entry_especial3.get()
+                        ,entry_especial4.get(),entry_especial5.get(),entry_especial6.get(),entry_especial7.get()]
     
     #Array para zerar os valores dos campos dps que for para outra tela (caso volte)
     Quantidades = [entry_item1, entry_item2, entry_item3, entry_item4,
@@ -82,7 +86,11 @@ def abrir_cardapio_salgado(janela_categoria):
    
     i = 0
     for item in Quantidade:
-
+      try:
+         item =int(item)
+      except:
+          messagebox.showerror("ERRO", "Informe um valor Valido")
+          return
       if item > 0:
          
          if tamanho[i] !='Tamanho':

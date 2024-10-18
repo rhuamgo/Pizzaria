@@ -24,13 +24,17 @@ def abrir_cardapio_bebidas(janela_categoria):
     
     sabores = ['COCA-COLA','GUARANA','FANTA UVA', 'PEPSI', 'SODA', 'CHÁ', 'LIMONADA']
 
-    Quantidade = [int(entry_item1.get()), int(entry_item2.get()), int(entry_item3.get()), int(entry_item4.get()),
-                   int(entry_item5.get()), int(entry_item6.get()), int(entry_item7.get())]
+    Quantidade = [entry_item1.get(), entry_item2.get(), entry_item3.get(), entry_item4.get(),
+                   entry_item5.get(), entry_item6.get(), entry_item7.get()]
     
    
     i = 0
     for item in Quantidade:
-
+      try:
+         item =int(item)
+      except:
+         messagebox.showerror("ERRO", "Informe um valor Valido")
+         return
       if item > 0:
          
          if tamanho[i] !='Tamanho':
@@ -42,8 +46,8 @@ def abrir_cardapio_bebidas(janela_categoria):
             Pizzas_adicionadas.append(pizza)
             
          else:
-            messagebox.showinfo("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
-            return
+          messagebox.showerror("ERRO", 'Tamanho não selecionado, Verifique e tente novamente!')
+          return
       i +=1
 
   
@@ -65,8 +69,8 @@ def abrir_cardapio_bebidas(janela_categoria):
     
     sabores = ['COCA-COLA','GUARANA','FANTA UVA', 'PEPSI', 'SODA', 'CHÁ', 'LIMONADA']
 
-    Quantidade = [int(entry_item1.get()), int(entry_item2.get()), int(entry_item3.get()), int(entry_item4.get()),
-                   int(entry_item5.get()), int(entry_item6.get()), int(entry_item7.get())]
+    Quantidade = [entry_item1.get(), entry_item2.get(), entry_item3.get(), entry_item4.get(),
+                   entry_item5.get(), entry_item6.get(), entry_item7.get()]
     
     tamanhos = [menu1, menu2, menu3, menu4, menu5, menu6, menu7]
     
@@ -75,7 +79,11 @@ def abrir_cardapio_bebidas(janela_categoria):
     
     i = 0
     for item in Quantidade:
-
+      try:
+         item =int(item)
+      except:
+         messagebox.showerror("ERRO", "Informe um valor Valido")
+         return
       if item > 0:
          
          if tamanho[i] !='Tamanho':

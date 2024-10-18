@@ -237,7 +237,7 @@ def abrir_cardapio_doce(janela_categoria):
  entry_item7 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
  entry_item7.place(x=380, y= 250, width=40, height=18)
 ################################################################################
- #Titulos dos Sabores Especiais
+ #Criando minha teabela de preços
  especial_label = tk.Label(frame,text="Tabela de Preços", bg= '#c52f49', fg='white'
                     , font = ('Arial', 12, "bold"))
  especial_label.place(x=220, y= 315)
@@ -255,7 +255,8 @@ def abrir_cardapio_doce(janela_categoria):
                      background="#d72e4c",
                      foreground="white",
                      font=('verdana', 10, 'bold'))
-     
+
+#Função que bloqueia o selecionado do TreeView   
  def block_selection(event):
     tw.selection_remove(tw.selection())
  lista = [['Grande', 'R$ 38,00' ], ['Media', 'R$ 26,00'], ['Broto', 'R$ 18,00']]
@@ -275,6 +276,7 @@ def abrir_cardapio_doce(janela_categoria):
  for (tamanho, valor) in lista:
         tw.insert("", "end", values=(tamanho, valor))
  
+ #Pega o evento selecionar do Treeview e cham função que bloqueia ele 
  tw.bind("<<TreeviewSelect>>", block_selection)
 
 #Botão Cancelar

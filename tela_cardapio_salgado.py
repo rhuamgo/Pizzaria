@@ -1,6 +1,7 @@
 from optparse import Values
 import tkinter as tk
-from tkinter import END, messagebox
+from tkinter import messagebox
+from tkinter import ttk
 import tela_confirmar_pedido
 
 
@@ -17,17 +18,14 @@ def abrir_cardapio_salgado(janela_categoria):
  def continuar_comprando():
 
 
-    tamanho = [menu1.get(), menu2.get(), menu3.get(), menu4.get(), menu5.get(), menu6.get(), menu7.get(), menu1_especial.get(),menu2_especial.get(),menu3_especial.get(),menu4_especial.get(),menu5_especial.get(),menu6_especial.get(),menu7_especial.get()]
+    tamanho = [menu1.get(), menu2.get(), menu3.get(), menu4.get(), menu5.get(), menu6.get(), menu7.get()]
 
 
     
-    sabores = ['CALABRESA','TRADICIONAL','LA CASA', 'FRANGO', 'LOMBO', 'PALMITO', 'PEPERONE',
-               "BAURU", "BRASILEIRA", "CARNE SECA", "IV QUEIJOS", "MODINHA", "TOSCANA","CALABRESA II"]
+    sabores = ['CALABRESA','TRADICIONAL','LA CASA', 'FRANGO', 'LOMBO', 'PALMITO', 'PEPERONE']
 
     Quantidade = [entry_item1.get(), entry_item2.get(), entry_item3.get(), entry_item4.get(),
-                   entry_item5.get(), entry_item6.get(), entry_item7.get(),entry_especial1.get(),
-                     entry_especial2.get(),entry_especial3.get()
-                        ,entry_especial4.get(),entry_especial5.get(),entry_especial6.get(),entry_especial7.get()]
+                   entry_item5.get(), entry_item6.get(), entry_item7.get()]
     i = 0
     for item in Quantidade:
       try:
@@ -63,26 +61,20 @@ def abrir_cardapio_salgado(janela_categoria):
  def abri_final():
 
 
-    tamanho = [menu1.get(), menu2.get(), menu3.get(), menu4.get(), menu5.get(), menu6.get(), menu7.get(), menu1_especial.get(),menu2_especial.get(),menu3_especial.get(),menu4_especial.get(),menu5_especial.get(),menu6_especial.get(),menu7_especial.get()]
+    tamanho = [menu1.get(), menu2.get(), menu3.get(), menu4.get(), menu5.get(), menu6.get(), menu7.get()]
 
 
     
-    sabores = ['CALABRESA','TRADICIONAL','LA CASA', 'FRANGO', 'LOMBO', 'PALMITO', 'PEPERONE',
-               "BAURU", "BRASILEIRA", "CARNE SECA", "IV QUEIJOS", "MODINHA", "TOSCANA","CALABRESA II"]
+    sabores = ['CALABRESA','TRADICIONAL','LA CASA', 'FRANGO', 'LOMBO', 'PALMITO', 'PEPERONE']
 
     Quantidade = [entry_item1.get(), entry_item2.get(), entry_item3.get(), entry_item4.get(),
-                   entry_item5.get(), entry_item6.get(), entry_item7.get(),entry_especial1.get(),
-                     entry_especial2.get(),entry_especial3.get()
-                        ,entry_especial4.get(),entry_especial5.get(),entry_especial6.get(),entry_especial7.get()]
+                   entry_item5.get(), entry_item6.get(), entry_item7.get()]
     
     #Array para zerar os valores dos campos dps que for para outra tela (caso volte)
     Quantidades = [entry_item1, entry_item2, entry_item3, entry_item4,
-                   entry_item5, entry_item6, entry_item7,entry_especial1,
-                     entry_especial2,entry_especial3
-                        ,entry_especial4,entry_especial5,entry_especial6,entry_especial7]
+                   entry_item5, entry_item6, entry_item7]
     
-    tamanhos = [menu1, menu2, menu3, menu4, menu5, menu6,menu7, menu1_especial
-               ,menu2_especial,menu3_especial,menu4_especial,menu5_especial,menu6_especial,menu7_especial]
+    tamanhos = [menu1, menu2, menu3, menu4, menu5, menu6,menu7]
    
     i = 0
     for item in Quantidade:
@@ -243,111 +235,47 @@ def abrir_cardapio_salgado(janela_categoria):
 
 
  #Titulos dos Sabores Especiais
- especial_label = tk.Label(frame,text="Pizzas Especiais", bg= '#c52f49', fg='white'
+ #Criando minha teabela de preços
+ especial_label = tk.Label(frame,text="Tabela de Preços", bg= '#c52f49', fg='white'
                     , font = ('Arial', 12, "bold"))
- especial_label.place(x=220, y= 300)
+ especial_label.place(x=220, y= 315)
 
- saborEsp_label = tk.Label(frame,text="Sabor", bg= '#c52f49', fg='black'
-                    , font = ('Arial', 11, "bold"))
- saborEsp_label.place(x=160, y= 330)
+ #Criando e estilizando 
+ estilo = ttk.Style()
+ estilo.theme_use('default') 
+ estilo.configure("Treeview",
+                     background="#c95b6e",
+                     foreground="black",
+                     rowheight=25,
+                     fieldbackground="#c95b6e")
+
+ estilo.configure("Treeview.Heading",
+                     background="#d72e4c",
+                     foreground="white",
+                     font=('verdana', 10, 'bold'))
+
+#Função que bloqueia o selecionado do TreeView   
+ def block_selection(event):
+    tw.selection_remove(tw.selection())
+ lista = [['Grande', 'R$ 42,00' ], ['Media', 'R$ 26,00'], ['Broto', 'R$ 18,00']]
+
+ tw = ttk.Treeview(frame, columns=('Tamanhos', 'Valores'), show='headings', height=3)
+    
+    # Configurando as colunas
+ tw.column('Tamanhos', minwidth=0, width=110, anchor='center')
+ tw.column('Valores', minwidth=0, width=70, anchor='center')
+
  
- tamanhoEsp_label = tk.Label(frame,text="Tamanho", bg= '#c52f49', fg='black'
-                    , font = ('Arial', 11, 'bold'))
- tamanhoEsp_label.place(x=260, y= 330)
+    # Definindo os títulos das colunas
+ tw.heading('Tamanhos', text='Tamanhos')
+ tw.heading('Valores', text='Valores')
+ tw.place(x=200, y=355)
 
- quantidadeEsp_label = tk.Label(frame,text="Quantidade", bg= '#c52f49', fg='black'
-                    , font = ('Arial', 11, 'bold'))
- quantidadeEsp_label.place(x=360, y= 330)
-
-
- #Sabores das pizzas Especiais
- sabores = ["BAURU", "BRASILEIRA", "CARNE SECA", "IV QUEIJOS", "MODINHA", "TOSCANA","CALABRESA II"]
- for idx, sabor in enumerate(sabores):
-      item_label = tk.Label(frame, text=sabor, bg='#c95b6e', fg='black', font=('Arial', 9, 'bold'))
-      item_label.place(x=150, y=360 + idx * 20)
-
-
-
- #Menus de Tamanho das Pizzas especiais
- menu1_especial = tk.StringVar()
- menu1_especial.set("Tamanho")  
-
- menu2_especial = tk.StringVar()
- menu2_especial.set("Tamanho")  
-
- menu3_especial = tk.StringVar()
- menu3_especial.set("Tamanho")  
-
- menu4_especial = tk.StringVar()
- menu4_especial.set("Tamanho")  
-
- menu5_especial = tk.StringVar()
- menu5_especial.set("Tamanho")  
-
- menu6_especial = tk.StringVar()
- menu6_especial.set("Tamanho")  
-
- menu7_especial = tk.StringVar()
- menu7_especial.set("Tamanho")
-
- menu_especial1 =tk.OptionMenu(frame, menu1_especial ,"Grande", "Media", "Broto")
- menu_especial1.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial1["menu"].config(fg="black", bg="#c95b6e")
- menu_especial1.place(x=250, y= 360, width=88, height=20) 
-
-
- menu_especial2 =tk.OptionMenu(frame, menu2_especial ,"Grande", "Media", "Broto")
- menu_especial2.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial2["menu"].config(fg="black", bg="#c95b6e")
- menu_especial2.place(x=250, y=380, width=88, height=20)
-
- menu_especial3 =tk.OptionMenu(frame, menu3_especial ,"Grande", "Media", "Broto")
- menu_especial3.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial3["menu"].config(fg="black", bg="#c95b6e")
- menu_especial3.place(x=250, y=400, width=88, height=20)
-
- menu_especial4 =tk.OptionMenu(frame, menu4_especial ,"Grande", "Media", "Broto")
- menu_especial4.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial4["menu"].config(fg="black", bg="#c95b6e")
- menu_especial4.place(x=250, y=420, width=88, height=20)
-
- menu_especial5 =tk.OptionMenu(frame, menu5_especial ,"Grande", "Media", "Broto")
- menu_especial5.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial5["menu"].config(fg="black", bg="#c95b6e")
- menu_especial5.place(x=250, y=440, width=88, height=20)
-
- menu_especial6 =tk.OptionMenu(frame, menu6_especial ,"Grande", "Media", "Broto")
- menu_especial6.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial6["menu"].config(fg="black", bg="#c95b6e")
- menu_especial6.place(x=250, y=460, width=88, height=20)
-
- menu_especial7 =tk.OptionMenu(frame, menu7_especial ,"Grande", "Media", "Broto")
- menu_especial7.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
- menu_especial7["menu"].config(fg="black", bg="#c95b6e")
- menu_especial7.place(x=250, y=480, width=88, height=20)
-
-#Caixa de quantiade das Pizzas especiais
- entry_especial1 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial1.place(x=380, y= 360, width=40, height=18)
-
- entry_especial2 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial2.place(x=380, y= 380, width=40, height=18)
-
- entry_especial3 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial3.place(x=380, y= 400, width=40, height=18)
-
- entry_especial4 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial4.place(x=380, y= 420, width=40, height=18)
-
- entry_especial5 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial5.place(x=380, y= 440, width=40, height=18)
-
- entry_especial6 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial6.place(x=380, y= 460, width=40, height=18)
-
- entry_especial7 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_especial7.place(x=380, y= 480, width=40, height=18)
-
+ for (tamanho, valor) in lista:
+        tw.insert("", "end", values=(tamanho, valor))
+ 
+ #Pega o evento selecionar do Treeview e cham função que bloqueia ele 
+ tw.bind("<<TreeviewSelect>>", block_selection)
 
 #Botão Cancelar
  botap_cancelar = tk.Button(frame, text="Voltar", bd=2, bg = '#c52f49' , fg = 'white' 

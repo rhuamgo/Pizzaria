@@ -28,7 +28,7 @@ def confirmar_pedido(janela,pizzas):
 
             for (s,t,q) in valores_tw:
        
-              for (trad, esp, doce, bebida) in zip(pizzaSalgadaTrad,pizzaSalgadaEsp,pizzDoce,bebidas):
+              for (trad, esp, doce, bebida) in zip(pizzaSalgadaTrad,pizzDoce,bebidas):
             
                if s == trad:
                  quantidadeTotal += 25 * int(q)
@@ -114,7 +114,7 @@ def confirmar_pedido(janela,pizzas):
        
     pizzaSalgadaTrad = ['CALABRESA','TRADICIONAL','LA CASA', 'FRANGO', 'LOMBO', 'PALMITO', 'PEPERONE']
     
-    pizzaSalgadaEsp = ["BAURU", "BRASILEIRA", "CARNE SECA", "IV QUEIJOS", "MODINHA", "TOSCANA","CALABRESA II"]
+    
     pizzDoce = ['M&Ms','BANANA SHOW','BRIGADEIRO', 'OREO', 'OURO BRANCO', 'PRESTIGIO', 'GOIABADA']
 
     bebidas = ['COCA-COLA','GUARANA','FANTA UVA', 'PEPSI', 'SODA', 'CHÁ', 'LIMONADA']
@@ -122,13 +122,10 @@ def confirmar_pedido(janela,pizzas):
     #Pega os valores da rotina de cima e as listas de cima, usa o zip para pegar todos os Arrays de cima com os sabores e itens 
     for (s,t,q) in valores_tw:
         
-        for (trad, esp, doce, bebida) in zip(pizzaSalgadaTrad,pizzaSalgadaEsp,pizzDoce,bebidas):
+        for (trad, doce, bebida) in zip(pizzaSalgadaTrad,pizzDoce,bebidas):
             
          if s == trad:
             quantidadeTotal += 25 * int(q)
-
-         elif s == esp:
-            quantidadeTotal += 42 * int(q)
 
          elif s == doce:
 

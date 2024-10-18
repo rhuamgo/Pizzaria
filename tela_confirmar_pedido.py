@@ -13,10 +13,16 @@ def confirmar_pedido(janela,pizzas):
         janela.deiconify()
     def deletar():
         try:
+            #Primeiro eu pego o primeiro item selecionado, depois eu guardo os valores em "valor" ai eu subtraio a qtd e guardo
+            #o resultado em "valor1" uso o metodo "item" e atualizo a linha selecionada com o resultado de "valor1"
             itemSelecionado = tw.selection()[0]
-            tw.delete(itemSelecionado)
-
-
+            valor =tw.item(itemSelecionado, "values")
+            
+            valor1 = int(valor[2]) - 1
+            tw.item(itemSelecionado, values=(valor[0],valor[1],valor1))   
+            #caso o numero for igual a zero ele deleta a linha selecionada          
+            if valor1 == 0:
+                tw.delete(itemSelecionado)
 
             #Recalcula o valor total das pizzas e atualiza
             itens = tw.get_children()
@@ -27,22 +33,42 @@ def confirmar_pedido(janela,pizzas):
             quantidadeTotal = 0
 
             for (s,t,q) in valores_tw:
-       
-              for (trad, esp, doce, bebida) in zip(pizzaSalgadaTrad,pizzDoce,bebidas):
+        
+                for (trad, doce, bebida) in zip(pizzaSalgadaTrad,pizzDoce,bebidas):
             
-               if s == trad:
-                 quantidadeTotal += 25 * int(q)
+                    if s == trad:
+                        if t == 'Grande':
+                            quantidadeTotal += 42 * int(q)
+            
+                        elif t == 'Media':
+                            quantidadeTotal += 32 * int(q)
+            
+                        elif t == 'Broto':
+                            quantidadeTotal += 18 * int(q)
 
-               elif s == esp:
-                quantidadeTotal += 42 * int(q)
+                    elif s == doce:
+                        if t == 'Grande':
+                            quantidadeTotal += 38 * int(q)
+            
+                        elif t == 'Media':
+                            quantidadeTotal += 26 * int(q)
+            
+                        elif t == 'Broto':
+                            quantidadeTotal += 18 * int(q)
 
-               elif s == doce:
+                    elif s == bebida :
+                        if t == '1 LT':
+                            quantidadeTotal += 10 * int(q)
+            
+                        elif t == '2 LT':
+                            quantidadeTotal += 15 * int(q)
+            
+                        elif t == 'LATA':
+                            quantidadeTotal += 6 * int(q)
+            
 
-                quantidadeTotal += 30 * int(q)
-         
-               elif s == bebida :
-                quantidadeTotal += 12 * int(q)
-            total.configure(text=f'R${quantidadeTotal}')
+            total.configure(text=f'Total: R${quantidadeTotal},00',bd=4, bg= '#c52f49', fg='white'
+                    , font = ("Arial Black", 14, 'bold'))
         except:
             messagebox.showinfo('ERRO', "Selecione a Pizza que deseja Deletar!")
   
@@ -57,7 +83,7 @@ def confirmar_pedido(janela,pizzas):
     janela_confirmar.iconbitmap("img\\icon.ico")
 
     lista = pizzas
-    
+
     # Definindo o estilo personalizado para o Treeview
     estilo = ttk.Style()
     estilo.theme_use('default') 
@@ -114,27 +140,48 @@ def confirmar_pedido(janela,pizzas):
        
     pizzaSalgadaTrad = ['CALABRESA','TRADICIONAL','LA CASA', 'FRANGO', 'LOMBO', 'PALMITO', 'PEPERONE']
     
-    
     pizzDoce = ['M&Ms','BANANA SHOW','BRIGADEIRO', 'OREO', 'OURO BRANCO', 'PRESTIGIO', 'GOIABADA']
 
     bebidas = ['COCA-COLA','GUARANA','FANTA UVA', 'PEPSI', 'SODA', 'CHÁ', 'LIMONADA']
 
     #Pega os valores da rotina de cima e as listas de cima, usa o zip para pegar todos os Arrays de cima com os sabores e itens 
     for (s,t,q) in valores_tw:
-        
+           
         for (trad, doce, bebida) in zip(pizzaSalgadaTrad,pizzDoce,bebidas):
             
          if s == trad:
-            quantidadeTotal += 25 * int(q)
+            if t == 'Grande':
+                quantidadeTotal += 42 * int(q)
+            
+            elif t == 'Media':
+                quantidadeTotal += 32 * int(q)
+            
+            elif t == 'Broto':
+                quantidadeTotal += 18 * int(q)
 
          elif s == doce:
+            if t == 'Grande':
+                quantidadeTotal += 38 * int(q)
+            
+            elif t == 'Media':
+                quantidadeTotal += 26 * int(q)
+            
+            elif t == 'Broto':
+                quantidadeTotal += 18 * int(q)
 
-            quantidadeTotal += 30 * int(q)
         
          elif s == bebida :
-            quantidadeTotal += 12 * int(q)
+            if t == '1 LT':
+                quantidadeTotal += 10 * int(q)
+            
+            elif t == '2 LT':
+                quantidadeTotal += 15 * int(q)
+            
+            elif t == 'LATA':
+                quantidadeTotal += 6 * int(q)
+            
 
-    total =tk.Label(janela_confirmar, text=f'R${quantidadeTotal}',bd=4, bg= '#c52f49', fg='white'
+    total =tk.Label(janela_confirmar, text=f'Total: R${quantidadeTotal},00',bd=4, bg= '#c52f49', fg='white'
                     , font = ("Arial Black", 14, 'bold'))
     total.place(x=250, y=400)
 

@@ -258,7 +258,7 @@ def abrir_cardapio_salgado(janela_categoria):
 #Função que bloqueia o selecionado do TreeView   
  def block_selection(event):
     tw.selection_remove(tw.selection())
- lista = [['Grande', 'R$ 42,00' ], ['Media', 'R$ 26,00'], ['Broto', 'R$ 18,00']]
+ lista = [['Grande', 'R$ 42,00' ], ['Media', 'R$ 32,00'], ['Broto', 'R$ 18,00']]
 
  tw = ttk.Treeview(frame, columns=('Tamanhos', 'Valores'), show='headings', height=3)
     

@@ -54,7 +54,7 @@ def confirmar_pedido(janela,pizzas):
     janela_confirmar.geometry("650x600")
     janela_confirmar.configure(background='#eb4764')
     janela_confirmar.resizable(False, False)
-    janela_confirmar.iconbitmap("PIZZARIA\\img\\icon.ico")
+    janela_confirmar.iconbitmap("img\\icon.ico")
 
     lista = pizzas
     

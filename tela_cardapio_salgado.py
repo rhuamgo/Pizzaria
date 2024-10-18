@@ -117,7 +117,7 @@ def abrir_cardapio_salgado(janela_categoria):
  janela_salgado.geometry("650x600")
  janela_salgado.configure(background= '#eb4764')
  janela_salgado.resizable(False, False)
- janela_salgado.iconbitmap("PIZZARIA\\img\\icon.ico")
+ janela_salgado.iconbitmap("img\\icon.ico")
   
  #Criando frame da tela de pizzas salgadas
  frame=tk.Frame(janela_salgado, bd = 4, bg = '#c95b6e',

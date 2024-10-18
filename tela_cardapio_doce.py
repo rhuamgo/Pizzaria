@@ -121,7 +121,7 @@ def abrir_cardapio_doce(janela_categoria):
  janela_doce.geometry("650x600")
  janela_doce.configure(background= '#eb4764')
  janela_doce.resizable(False, False)
- janela_doce.iconbitmap("PIZZARIA\\img\\icon.ico")
+ janela_doce.iconbitmap("img\\icon.ico")
   
  #Criando frame da tela de pizzas salgadas
  frame=tk.Frame(janela_doce, bd = 4, bg = '#c95b6e',

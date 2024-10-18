@@ -13,7 +13,7 @@ def abrir_contato(janela_incial):
  janela_contato.geometry("400x400")
  janela_contato.configure(background= '#eb4764')
  janela_contato.resizable(False, False)
- janela_contato.iconbitmap("PIZZARIA\\img\\icon.ico")
+ janela_contato.iconbitmap("img\\icon.ico")
 
  frame_contato=tk.Frame(janela_contato, bd = 4, bg = '#c95b6e',
                      highlightbackground= '#c52f49', highlightthickness= 3 )
@@ -37,7 +37,7 @@ def abrir_contato(janela_incial):
                            , font = ("Arial", 10, 'bold'))
  label_titulo.pack(padx=10, pady=10)
  
- image_contato = tk.PhotoImage(file="PIZZARIA\\img\\qrCode.png")
+ image_contato = tk.PhotoImage(file="img\\qrCode.png")
  janela_contato.img_retire= image_contato
 
  label_qrCode = tk.Label(frame_contato, image=image_contato)

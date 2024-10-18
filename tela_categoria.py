@@ -38,7 +38,7 @@ def abrir_categoria(janela_incial):
  janela_categoria.geometry("600x250")
  janela_categoria.configure(background= '#eb4764')
  janela_categoria.resizable(False, False)
- janela_categoria.iconbitmap("PIZZARIA\\img\\icon.ico")
+ janela_categoria.iconbitmap("img\\icon.ico")
 
  #Criando frame da tela de categoria
  frame1=tk.Frame(janela_categoria, bd = 4, bg = '#c95b6e',
@@ -49,13 +49,13 @@ def abrir_categoria(janela_incial):
                     , font = ('verdana', 8, 'bold'))
  label.pack(padx=10, pady=10)
 
- img_salgada = tk.PhotoImage(file="PIZZARIA\\img\\pizza_salgada.png")
+ img_salgada = tk.PhotoImage(file="img\\pizza_salgada.png")
  janela_categoria.img_salgada = img_salgada
 
- img_doce = tk.PhotoImage(file="PIZZARIA\\img\\pizza_doce.png")
+ img_doce = tk.PhotoImage(file="img\\pizza_doce.png")
  janela_categoria.img_doce = img_doce
 
- img_bebidas = tk.PhotoImage(file="PIZZARIA\\img\\bebidas.png")
+ img_bebidas = tk.PhotoImage(file="img\\bebidas.png")
  janela_categoria.img_bebidas = img_bebidas
  
  

@@ -12,7 +12,7 @@ def abrir_pedido(janela_incial):
  janela_pedido.geometry("400x450")
  janela_pedido.configure(background= '#eb4764')
  janela_pedido.resizable(False, False)
- janela_pedido.iconbitmap("PIZZARIA\\img\\icon.ico")
+ janela_pedido.iconbitmap("img\\icon.ico")
 
    
  #Criando frame da tela de pedidos
@@ -25,8 +25,8 @@ def abrir_pedido(janela_incial):
  label.pack(padx=10, pady=10)
 
  #Guardando as imagens de retirada e entrega 
- img_entrega = tk.PhotoImage(file="PIZZARIA\\img\\img_entrega.png")
- img_retire = tk.PhotoImage(file="PIZZARIA\\img\\img_retire.png")
+ img_entrega = tk.PhotoImage(file="img\\img_entrega.png")
+ img_retire = tk.PhotoImage(file="img\\img_retire.png")
 
  #Para evitar com que a img seja destruida quando chamamos a fumçãao vamos ligar ela ao atributo da janela criando assim uma referencia a img (transformamos em obj)
  janela_pedido.img_entrega = img_entrega

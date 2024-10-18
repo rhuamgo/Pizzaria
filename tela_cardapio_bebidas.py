@@ -120,7 +120,7 @@ def abrir_cardapio_bebidas(janela_categoria):
  janela_bebidas.geometry("650x600")
  janela_bebidas.configure(background= '#eb4764')
  janela_bebidas.resizable(False, False)
- janela_bebidas.iconbitmap("PIZZARIA\\img\\icon.ico")
+ janela_bebidas.iconbitmap("img\\icon.ico")
   
  #Criando frame da tela de pizzas salgadas
  frame=tk.Frame(janela_bebidas, bd = 4, bg = '#c95b6e',

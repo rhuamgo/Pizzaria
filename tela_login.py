@@ -28,7 +28,7 @@ def abrir_login(janela_incial):
  janela.maxsize(width= 350, height = 250)
  janela.minsize(width = 200, height = 200)
  janela.configure(background= '#eb4764')
- janela.iconbitmap("PIZZARIA\\img\\icon.ico")
+ janela.iconbitmap("img\\icon.ico")
 
 
  janela_frame=tk.Frame(janela, bd = 3, bg = '#c95b6e',

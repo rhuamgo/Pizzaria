@@ -30,25 +30,26 @@ def abrir_cardapio_salgado(janela_categoria):
     for item in Quantidade:
       try:
          item =int(item)
+         if item > 0:
+            
+            if tamanho[i] !='Tamanho':
+              
+
+               pizza = [sabores[i], tamanho[i], item]
+           
+            
+               Pizzas_adicionadas.append(pizza)
+            
+            else:
+                messagebox.showinfo("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
+                return
+         i +=1
+
+  
       except:
           messagebox.showerror("ERRO", "Informe um valor Valido")
           return
-      if item > 0:
-         
-         if tamanho[i] !='Tamanho':
-            
-
-            pizza = [sabores[i], tamanho[i], item]
-           
-            
-            Pizzas_adicionadas.append(pizza)
-            
-         else:
-            messagebox.showinfo("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
-            return
-      i +=1
-
-  
+      
     if Pizzas_adicionadas != []:
          print(Pizzas_adicionadas)
          janela_salgado.destroy()
@@ -80,25 +81,25 @@ def abrir_cardapio_salgado(janela_categoria):
     for item in Quantidade:
       try:
          item =int(item)
+         if item > 0:
+         
+            if tamanho[i] !='Tamanho':
+            
+
+               pizza = [sabores[i], tamanho[i], item]
+           
+            
+               Pizzas_adicionadas.append(pizza)
+            
+            else:
+                messagebox.showinfo("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
+                return
+         i +=1
+
+  
       except:
           messagebox.showerror("ERRO", "Informe um valor Valido")
           return
-      if item > 0:
-         
-         if tamanho[i] !='Tamanho':
-            
-
-            pizza = [sabores[i], tamanho[i], item]
-           
-            
-            Pizzas_adicionadas.append(pizza)
-            
-         else:
-            messagebox.showinfo("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
-            return
-      i +=1
-
-  
     if Pizzas_adicionadas != []:
          for valor in Quantidades:
             valor.configure(values=(0,1,2,3,4,5))

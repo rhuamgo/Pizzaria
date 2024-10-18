@@ -95,7 +95,7 @@ def confirmar_pedido(janela,pizzas):
         tw.insert("", "end", values=(sabor, tamanho, quantidade))
 
     #Botão Cancelar
-    botap_cancelar = tk.Button(janela_confirmar, text="Cencelar", bd=2, bg = '#c52f49' , fg = 'white' 
+    botap_cancelar = tk.Button(janela_confirmar, text="Cancelar", bd=2, bg = '#c52f49' , fg = 'white' 
                             , font = ('verdana', 8, 'bold'), command=voltar)
     botap_cancelar.place(x=100, y=520)
 

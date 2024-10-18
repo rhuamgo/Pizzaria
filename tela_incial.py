@@ -74,4 +74,3 @@ botao_info.place(x=375, y=123)
 
 
 janela_incial.mainloop()
-

@@ -1,7 +1,9 @@
 import tkinter as tk
+from tkinter import messagebox
 import tela_cardapio_salgado
 import tela_cardapio_doce
 import tela_cardapio_bebidas
+import tela_confirmar_pedido
 
 def abrir_categoria(janela_incial):
  def voltar():
@@ -19,6 +21,16 @@ def abrir_categoria(janela_incial):
  def cardapio_bebida():
       janela_categoria.withdraw()
       tela_cardapio_bebidas.abrir_cardapio_bebidas(janela_categoria)
+
+ def confirmarPedido():
+     Pizzas_adicionadas = tela_cardapio_salgado.Pizzas_adicionadas
+     if Pizzas_adicionadas != []:
+         
+         print(Pizzas_adicionadas)
+         janela_categoria.withdraw()
+         tela_confirmar_pedido.confirmar_pedido(janela_categoria,Pizzas_adicionadas)
+     else:
+          messagebox.showinfo("ERRO",'Selecione ao menos um item antes de Continuar')
 
 
  janela_categoria = tk.Toplevel(janela_incial)
@@ -60,10 +72,13 @@ def abrir_categoria(janela_incial):
                           bd=3, bg="#d72e4c", fg="black", font=("verdana", 8, "bold"), command=cardapio_bebida)
  botao_entrega.place(x=350, y=65)
 
+ botao_confirmarPedido = tk.Button(frame1, text="Finalizar Pedido", bd=2, bg = '#d72e4c' , fg = 'white' 
+                            , font = ('verdana', 8, 'bold'), command=confirmarPedido) 
+ botao_confirmarPedido.place(x=250, y=200)
 
  #BOTÃO PARA RETORNAR A TELA DE PEDIDOS
  botao_voltar = tk.Button(frame1, text="Voltar", bd=2, bg = '#d72e4c' , fg = 'white' 
                             , font = ('verdana', 8, 'bold'), command=voltar)
- botao_voltar.place(x=250, y=200)
+ botao_voltar.place(x=150, y=200)
 
  janela_categoria.mainloop()

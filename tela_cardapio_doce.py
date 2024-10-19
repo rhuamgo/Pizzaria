@@ -86,7 +86,7 @@ def abrir_cardapio_doce(janela_categoria):
 
  #Criando frame da tela de pizzas salgadas
  frame=tk.Frame(janela_doce, bd = 4, bg = '#c95b6e',
-                     highlightbackground= '#c52f49', highlightthickness= 3 )
+                     highlightbackground= '#c52f49', highlightthickness= 0 )
  frame.place(relx=0.02, rely=0.02, relwidth= 0.96, relheight = 0.96)
  
  #Titulo da pagina

@@ -69,61 +69,7 @@ def abrir_cardapio_salgado(janela_categoria):
     else:
        messagebox.showinfo("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
 
-#Função para ir para tela de pagamento
- def abri_final():
 
-
-    tamanho = [menu1.get(), menu2.get(), menu3.get(), menu4.get(), menu5.get(), menu6.get(), menu7.get()]
-
-
-    
-    sabores = ['CALABRESA','TRADICIONAL','LA CASA', 'FRANGO', 'LOMBO', 'PALMITO', 'PEPERONE']
-
-    Quantidade = [entry_item1.get(), entry_item2.get(), entry_item3.get(), entry_item4.get(),
-                   entry_item5.get(), entry_item6.get(), entry_item7.get()]
-    
-    #Array para zerar os valores dos campos dps que for para outra tela (caso volte)
-    Quantidades = [entry_item1, entry_item2, entry_item3, entry_item4,
-                   entry_item5, entry_item6, entry_item7]
-    
-    tamanhos = [menu1, menu2, menu3, menu4, menu5, menu6,menu7]
-   
-    i = 0
-    for item in Quantidade:
-      try:
-         item =int(item)
-         if item > 0:
-         
-            if tamanho[i] !='Tamanho':
-            
-
-               pizza = [sabores[i], tamanho[i], item]
-           
-            
-               Pizzas_adicionadas.append(pizza)
-            
-            else:
-                messagebox.showinfo("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
-                return
-         i +=1
-
-  
-      except:
-          messagebox.showerror("ERRO", "Informe um valor Valido")
-          return
-    if Pizzas_adicionadas != []:
-         for valor in Quantidades:
-            valor.configure(values=(0,1,2,3,4,5))
-         for tamanho in tamanhos:
-            tamanho.set('Tamanho')
-         print(Pizzas_adicionadas)
-         janela_salgado.withdraw()
-         tela_confirmar_pedido.confirmar_pedido(janela_salgado,Pizzas_adicionadas)
-    else:
-       messagebox.showinfo("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
-
-
-    
  janela_salgado = tk.Toplevel(janela_categoria)
  janela_salgado.title("Cardapio Pizzas Salgadas")
  janela_salgado.configure(background= '#eb4764')
@@ -297,15 +243,10 @@ def abrir_cardapio_salgado(janela_categoria):
 #Botão Cancelar
  botap_cancelar = tk.Button(frame, text="Voltar", bd=2, bg = '#c52f49' , fg = 'white' 
                             , font = ('verdana', 8, 'bold'), command=voltar)
- botap_cancelar.place(x=100, y=520)
-
-#Botão De finalizar Pedido
- botao_finalizar_pedido = tk.Button(frame, text="Finalizar Pedido", bd=2, bg = '#c52f49' , fg = 'white' 
-                            , font = ('verdana', 8, 'bold'), command=abri_final)
- botao_finalizar_pedido.place(x=450, y=520)
+ botap_cancelar.place(x=200, y=520)
 
 #Botão de Continuar Comprando
  botao_continuar_comprando = tk.Button(frame, text="Continuar Comprando", bd=2, bg = '#c52f49' , fg = 'white' 
                             , font = ('verdana', 8, 'bold'), command=continuar_comprando)
- botao_continuar_comprando.place(x=230, y=520)
+ botao_continuar_comprando.place(x=300, y=520)
 

@@ -71,63 +71,7 @@ def abrir_cardapio_doce(janela_categoria):
        messagebox.showinfo("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
 
 #Função para ir para tela de pagamento
- def abri_final():
-   #Atualizando para chamar dentro da função para ela ficar sendo atualizada sempre com o valor atual
-    Pizzas_adicionadas = tela_cardapio_salgado.Pizzas_adicionadas
 
-    tamanho = [menu1.get(), menu2.get(), menu3.get(), menu4.get(), menu5.get(), menu6.get(), menu7.get()]
-
-
-    
-    sabores = ['M&Ms','BANANA SHOW','BRIGADEIRO', 'OREO', 'OURO BRANCO', 'PRESTIGIO', 'GOIABADA']
-
-    Quantidade = [entry_item1.get(), entry_item2.get(), entry_item3.get(), entry_item4.get(),
-                   entry_item5.get(), entry_item6.get(), entry_item7.get()]
-    
-    
-    tamanhos = [menu1, menu2, menu3, menu4, menu5, menu6, menu7]
-    
-    Quantidades = [entry_item1, entry_item2, entry_item3, entry_item4,entry_item5, entry_item6, entry_item7]
-      
-    
-    
-    i = 0
-    for item in Quantidade:
-      try:
-         item =int(item)
-      except:
-          messagebox.showerror("ERRO", "Informe um valor Valido")
-          return
-      if item > 0:
-         
-         if tamanho[i] !='Tamanho':
-
-
-            pizza = [sabores[i], tamanho[i], item]
-           
-            
-            Pizzas_adicionadas.append(pizza)
-            
-         else:
-            messagebox.showinfo("ERRO",'Tamanho não selecionado, Verifique e tente novamente!')
-            return
-      i +=1
-
-  
-    if Pizzas_adicionadas != []:
-         for tamanho in tamanhos:
-            tamanho.set('Tamanho')
-
-         for quantidade in Quantidades:
-            quantidade.configure(values=(0,1,2,3,4,5))
-         janela_doce.withdraw()
-         tela_confirmar_pedido.confirmar_pedido(janela_doce,Pizzas_adicionadas)
-
-    else:
-       messagebox.showinfo("ERRO",'Selecione ao menos uma Pizza antes de Continuar')
-
-
-    
  janela_doce = tk.Toplevel(janela_categoria)
  janela_doce.title("Cardapio Pizzas Doces")
  janela_doce.configure(background= '#eb4764')
@@ -299,15 +243,11 @@ def abrir_cardapio_doce(janela_categoria):
 #Botão Cancelar
  botap_cancelar = tk.Button(frame, text="Voltar", bd=2, bg = '#c52f49' , fg = 'white' 
                             , font = ('verdana', 8, 'bold'), command=voltar)
- botap_cancelar.place(x=100, y=520)
+ botap_cancelar.place(x=200, y=520)
 
-#Botão De finalizar Pedido
- botao_finalizar_pedido = tk.Button(frame, text="Finalizar Pedido", bd=2, bg = '#c52f49' , fg = 'white' 
-                            , font = ('verdana', 8, 'bold'), command=abri_final)
- botao_finalizar_pedido.place(x=450, y=520)
 
 #Botão de Continuar Comprando
  botao_continuar_comprando = tk.Button(frame, text="Continuar Comprando", bd=2, bg = '#c52f49' , fg = 'white' 
                             , font = ('verdana', 8, 'bold'), command=continuar_comprando)
- botao_continuar_comprando.place(x=230, y=520)
+ botao_continuar_comprando.place(x=300, y=520)
 

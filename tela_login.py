@@ -28,7 +28,6 @@ def abrir_login(janela_incial):
         
         else:
             messagebox.showerror("Erro", "Usuário ou senha incorretos!")
-
  #Configurando e Estilizando Janela de Login
  janela = tk.Toplevel(janela_incial)
  janela.title("Login")
@@ -45,18 +44,18 @@ def abrir_login(janela_incial):
 
 
  janela_frame=tk.Frame(janela, bd = 3, bg = '#c95b6e',
-                     highlightbackground= '#c52f49', highlightthickness= 3 )
+                     highlightbackground= '#c52f49', highlightthickness= 0 )
  janela_frame.place(relx=0.02, rely=0.02, relwidth= 0.96, relheight = 0.96)
 
  label_login = tk.Label(janela_frame, text="LOGIN", bd=2, bg = '#d72e4c' , fg = 'white' 
                             , font = ('verdana', 10, 'bold'))
  label_login.place(x=185, y=140)
 
- campo_login = tk.Entry(janela_frame, width=20,font=('Arial', 10) )
+ campo_login = tk.Entry(janela_frame, width=20,bd=2 ,font=('Arial', 10) )
  campo_login.place(x=140, y=170)
 
 
- campo_senha = tk.Entry(janela_frame,width=20, show="*", font=('Arial', 10))
+ campo_senha = tk.Entry(janela_frame,width=20,bd=2, show="*",font=('Arial', 10))
  campo_senha.place(x=140, y=200)
 
 

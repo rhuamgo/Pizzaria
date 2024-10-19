@@ -130,7 +130,6 @@ def abrir_cardapio_doce(janela_categoria):
     
  janela_doce = tk.Toplevel(janela_categoria)
  janela_doce.title("Cardapio Pizzas Doces")
- janela_doce.geometry("650x600")
  janela_doce.configure(background= '#eb4764')
  janela_doce.resizable(False, False)
  janela_doce.iconbitmap("img\\icon.ico")

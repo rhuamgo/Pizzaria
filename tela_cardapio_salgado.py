@@ -140,61 +140,61 @@ def abrir_cardapio_salgado(janela_categoria):
  menu7.set("Tamanho")
 
  menu_item1 =tk.OptionMenu(frame, menu1 ,"Grande", "Media", "Broto")
- menu_item1.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
+ menu_item1.config(fg="black", bg="#c95b6e", font=('Arial', 10, 'bold'))
  menu_item1["menu"].config(fg="black", bg="#c95b6e")
- menu_item1.place(x=250, y= 130, width=88, height=20) 
+ menu_item1.place(x=250, y= 130, width=94, height=22) 
 
  menu_item2 =tk.OptionMenu(frame, menu2 ,"Grande", "Media", "Broto")
- menu_item2.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
+ menu_item2.config(fg="black", bg="#c95b6e", font=('Arial', 10, 'bold'))
  menu_item2["menu"].config(fg="black", bg="#c95b6e")
- menu_item2.place(x=250, y=150, width=88, height=20)
+ menu_item2.place(x=250, y=150, width=94, height=22)
 
  menu_item3 =tk.OptionMenu(frame, menu3 ,"Grande", "Media", "Broto")
- menu_item3.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
+ menu_item3.config(fg="black", bg="#c95b6e", font=('Arial', 10, 'bold'))
  menu_item3["menu"].config(fg="black", bg="#c95b6e")
- menu_item3.place(x=250, y=170, width=88, height=20)
+ menu_item3.place(x=250, y=170, width=94, height=22)
 
  menu_item4 =tk.OptionMenu(frame, menu4 ,"Grande", "Media", "Broto")
- menu_item4.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
+ menu_item4.config(fg="black", bg="#c95b6e", font=('Arial', 10, 'bold'))
  menu_item4["menu"].config(fg="black", bg="#c95b6e")
- menu_item4.place(x=250, y=190, width=88, height=20)
+ menu_item4.place(x=250, y=190, width=94, height=22)
 
  menu_item5 =tk.OptionMenu(frame, menu5 ,"Grande", "Media", "Broto")
- menu_item5.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
+ menu_item5.config(fg="black", bg="#c95b6e", font=('Arial', 10, 'bold'))
  menu_item5["menu"].config(fg="black", bg="#c95b6e")
- menu_item5.place(x=250, y=210, width=88, height=20)
+ menu_item5.place(x=250, y=210, width=94, height=22)
 
  menu_item6 =tk.OptionMenu(frame, menu6 ,"Grande", "Media", "Broto")
- menu_item6.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
+ menu_item6.config(fg="black", bg="#c95b6e", font=('Arial', 10, 'bold'))
  menu_item6["menu"].config(fg="black", bg="#c95b6e")
- menu_item6.place(x=250, y=230, width=88, height=20)
+ menu_item6.place(x=250, y=230, width=94, height=22)
 
  menu_item7 =tk.OptionMenu(frame, menu7 ,"Grande", "Media", "Broto")
- menu_item7.config(fg="black", bg="#c95b6e", font=('Arial', 9, 'bold'))
+ menu_item7.config(fg="black", bg="#c95b6e", font=('Arial', 10, 'bold'))
  menu_item7["menu"].config(fg="black", bg="#c95b6e")
- menu_item7.place(x=250, y=250, width=88, height=20)
+ menu_item7.place(x=250, y=250, width=94, height=22)
 
 #Caixa de Quantidades
- entry_item1 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_item1.place(x=380, y= 130, width=40, height=18)
+ entry_item1 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black', font=('Arial', 11))
+ entry_item1.place(x=380, y= 130, width=40, height=20)
 
- entry_item2 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_item2.place(x=380, y= 150, width=40, height=18)
+ entry_item2 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black', font=('Arial', 11))
+ entry_item2.place(x=380, y= 150, width=40, height=20)
 
- entry_item3 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_item3.place(x=380, y= 170, width=40, height=18)
+ entry_item3 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black', font=('Arial', 11))
+ entry_item3.place(x=380, y= 170, width=40, height=20)
 
- entry_item4 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_item4.place(x=380, y= 190, width=40, height=18)
+ entry_item4 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black', font=('Arial', 11))
+ entry_item4.place(x=380, y= 190, width=40, height=20)
 
- entry_item5 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_item5.place(x=380, y= 210, width=40, height=18)
+ entry_item5 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black', font=('Arial', 11))
+ entry_item5.place(x=380, y= 210, width=40, height=20)
 
- entry_item6 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_item6.place(x=380, y= 230, width=40, height=18)
+ entry_item6 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black', font=('Arial', 11))
+ entry_item6.place(x=380, y= 230, width=40, height=20)
 
- entry_item7 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black')
- entry_item7.place(x=380, y= 250, width=40, height=18)
+ entry_item7 = tk.Spinbox(frame,values=(0,1,2,3,4,5) ,bg="#a95b6e", fg='black', font=('Arial', 11))
+ entry_item7.place(x=380, y= 250, width=40, height=20)
 
 
  #Titulos dos Sabores Especiais

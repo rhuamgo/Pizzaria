@@ -50,7 +50,7 @@ def abrir_login(janela_incial):
 
  label_login = tk.Label(janela_frame, text="LOGIN", bd=2, bg = '#d72e4c' , fg = 'white' 
                             , font = ('verdana', 10, 'bold'))
- label_login.place(x=190, y=140)
+ label_login.place(x=185, y=140)
 
  campo_login = tk.Entry(janela_frame, width=20,font=('Arial', 10) )
  campo_login.place(x=140, y=170)
@@ -63,5 +63,5 @@ def abrir_login(janela_incial):
    
  botao_entrar = tk.Button(janela_frame, text="Entrar", bd=2, bg = '#d72e4c' , fg = 'white' 
                             , font = ('verdana', 8, 'bold'),width=10 , command=verificar_usuario)
- botao_entrar.place(x=170, y=245)
+ botao_entrar.place(x=170, y=240)
  

@@ -88,7 +88,7 @@ def abrir_categoria(janela_incial):
                           bd=3, bg="#d72e4c", fg="black", font=("verdana", 8, "bold"), command=cardapio_bebida)
  botao_entrega.place(x=350, y=65)
 
- botao_confirmarPedido = tk.Button(frame1, text="Finalizar Pedido", bd=2, bg = '#d72e4c' , fg = 'white' 
+ botao_confirmarPedido = tk.Button(frame1, text="Confirmar Pedido", bd=2, bg = '#d72e4c' , fg = 'white' 
                             , font = ('verdana', 8, 'bold'), command=confirmarPedido) 
  botao_confirmarPedido.place(x=250, y=200)
 

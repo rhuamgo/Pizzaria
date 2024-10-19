@@ -2,7 +2,18 @@ import tkinter as tk
 
 
 def abrir_contato(janela_incial):
-    
+ def centralizando_Janela(janela, largura, altura):
+    #Pega o tamanho da tela em pixel 
+    largura_tela = janela.winfo_screenwidth() #essa função pergunta para SO do monitor e retorna o valor em largura e altura
+    altura_tela = janela.winfo_screenheight()
+    #Dide o tamanho e a largura da tela por 2 e subtrais com a divisão dos mesmo valores da janela
+    x = (largura_tela // 2) - (largura // 2)
+    y = (altura_tela // 2) - (altura // 2)
+    #passa o tamanho da tela posicionando ela no eixo x e y
+    janela.geometry(f"{largura}x{altura}+{x}+{y}")
+
+
+
  def voltar():
         janela_contato.destroy()
         janela_incial.deiconify()
@@ -10,10 +21,16 @@ def abrir_contato(janela_incial):
 
  janela_contato = tk.Toplevel()  
  janela_contato.title("Contato")
- janela_contato.geometry("400x400")
+
  janela_contato.configure(background= '#eb4764')
  janela_contato.resizable(False, False)
  janela_contato.iconbitmap("img\\icon.ico")
+
+ largura_janela = 450
+ altura_janela = 500
+ centralizando_Janela(janela_contato, largura_janela, altura_janela)
+
+
 
  frame_contato=tk.Frame(janela_contato, bd = 4, bg = '#c95b6e',
                      highlightbackground= '#c52f49', highlightthickness= 3 )

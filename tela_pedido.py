@@ -3,6 +3,19 @@ from tkinter import PhotoImage
 
 
 def abrir_pedido(janela_incial):
+
+ def centralizando_Janela(janela, largura, altura):
+    #Pega o tamanho da tela em pixel 
+    largura_tela = janela.winfo_screenwidth() #essa função pergunta para SO do monitor e retorna o valor em largura e altura
+    altura_tela = janela.winfo_screenheight()
+    #Dide o tamanho e a largura da tela por 2 e subtrais com a divisão dos mesmo valores da janela
+    x = (largura_tela // 2) - (largura // 2)
+    y = (altura_tela // 2) - (altura // 2)
+    #passa o tamanho da tela posicionando ela no eixo x e y
+    janela.geometry(f"{largura}x{altura}+{x}+{y}")
+
+
+
  def voltar():
         janela_pedido.destroy()
         janela_incial.deiconify()
@@ -13,6 +26,12 @@ def abrir_pedido(janela_incial):
  janela_pedido.configure(background= '#eb4764')
  janela_pedido.resizable(False, False)
  janela_pedido.iconbitmap("img\\icon.ico")
+
+ largura_janela = 450
+ altura_janela = 400
+ centralizando_Janela(janela_pedido, largura_janela, altura_janela)
+
+
 
    
  #Criando frame da tela de pedidos

@@ -6,6 +6,17 @@ import tela_cardapio_bebidas
 import tela_confirmar_pedido
 
 def abrir_categoria(janela_incial):
+ def centralizando_Janela(janela, largura, altura):
+    #Pega o tamanho da tela em pixel 
+    largura_tela = janela.winfo_screenwidth() #essa função pergunta para SO do monitor e retorna o valor em largura e altura
+    altura_tela = janela.winfo_screenheight()
+    #Dide o tamanho e a largura da tela por 2 e subtrais com a divisão dos mesmo valores da janela
+    x = (largura_tela // 2) - (largura // 2)
+    y = (altura_tela // 2) - (altura // 2)
+    #passa o tamanho da tela posicionando ela no eixo x e y
+    janela.geometry(f"{largura}x{altura}+{x}+{y}")
+
+ 
  def voltar():
     janela_categoria.destroy()
     janela_incial.deiconify()
@@ -35,10 +46,15 @@ def abrir_categoria(janela_incial):
 
  janela_categoria = tk.Toplevel(janela_incial)
  janela_categoria.title("Categorias")
- janela_categoria.geometry("600x250")
  janela_categoria.configure(background= '#eb4764')
  janela_categoria.resizable(False, False)
  janela_categoria.iconbitmap("img\\icon.ico")
+
+ largura_janela = 600
+ altura_janela = 250
+ centralizando_Janela(janela_categoria, largura_janela, altura_janela)
+
+
 
  #Criando frame da tela de categoria
  frame1=tk.Frame(janela_categoria, bd = 4, bg = '#c95b6e',

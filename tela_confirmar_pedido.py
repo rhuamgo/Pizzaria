@@ -6,8 +6,20 @@ import tela_cardapio_salgado
 
 def confirmar_pedido(janela,pizzas):
 
+    def centralizando_Janela(janela, largura, altura):
+        #Pega o tamanho da tela em pixel 
+        largura_tela = janela.winfo_screenwidth() #essa função pergunta para SO do monitor e retorna o valor em largura e altura
+        altura_tela = janela.winfo_screenheight()
+        #Dide o tamanho e a largura da tela por 2 e subtrais com a divisão dos mesmo valores da janela
+        x = (largura_tela // 2) - (largura // 2)
+        y = (altura_tela // 2) - (altura // 2)
+        #passa o tamanho da tela posicionando ela no eixo x e y
+        janela.geometry(f"{largura}x{altura}+{x}+{y}")
+
+
+
   #Função para VOltar para categorias
-    def voltar():
+    def cancelar():
         tela_cardapio_salgado.Pizzas_adicionadas =[]
         janela_confirmar.destroy()
         janela.deiconify()
@@ -77,10 +89,15 @@ def confirmar_pedido(janela,pizzas):
     janela_confirmar = tk.Toplevel(janela)
     
     janela_confirmar.title("Confirmar Pedido")
-    janela_confirmar.geometry("650x600")
     janela_confirmar.configure(background='#eb4764')
     janela_confirmar.resizable(False, False)
     janela_confirmar.iconbitmap("img\\icon.ico")
+
+    largura_janela = 650
+    altura_janela = 600
+    centralizando_Janela(janela_confirmar, largura_janela, altura_janela)
+
+
 
     lista = pizzas
 
@@ -122,7 +139,7 @@ def confirmar_pedido(janela,pizzas):
 
     #Botão Cancelar
     botap_cancelar = tk.Button(janela_confirmar, text="Cancelar", bd=2, bg = '#c52f49' , fg = 'white' 
-                            , font = ('verdana', 8, 'bold'), command=voltar)
+                            , font = ('verdana', 8, 'bold'), command=cancelar)
     botap_cancelar.place(x=100, y=520)
 
     botap_deletar = tk.Button(janela_confirmar, text="Deletar", bd=2, bg = '#c52f49' , fg = 'white' 

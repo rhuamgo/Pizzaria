@@ -21,13 +21,31 @@ def abrir_contato():
     janela_incial.withdraw()
     tela_contato.abrir_contato(janela_incial)
 
+#Função para fazedr a janela inciial iniicar no meio
+def centralizando_Janela(janela, largura, altura):
+    #Pega o tamanho da tela em pixel 
+    largura_tela = janela.winfo_screenwidth() #essa função pergunta para SO do monitor e retorna o valor em largura e altura
+    altura_tela = janela.winfo_screenheight()
+    #Dide o tamanho e a largura da tela por 2 e subtrais com a divisão dos mesmo valores da janela
+    x = (largura_tela // 2) - (largura // 2)
+    y = (altura_tela // 2) - (altura // 2)
+    #passa o tamanho da tela posicionando ela no eixo x e y
+    janela.geometry(f"{largura}x{altura}+{x}+{y}")
+
+
+
 #Configurando janela 
 janela_incial = tk.Tk()
 janela_incial.title("Home")
-janela_incial.geometry("450x500")
 janela_incial.configure(background= '#1e3743')
 janela_incial.resizable(False, False)
 janela_incial.iconbitmap("img\\icon.ico")
+
+#Informando a altura e largura da janela e chamando a função para abrir ela no centro da tela
+largura_janela = 450
+altura_janela = 500
+centralizando_Janela(janela_incial, largura_janela, altura_janela)
+
 
 #Criando Frame e Impedindo que ele se ajuste automaticamente (estava ficando espaço em branco)
 frame_logo = tk.Frame(janela_incial)
@@ -42,7 +60,7 @@ frame_logo.config(width=banner_logo.width(), height=banner_logo.height())
 
 #Colcando a Img dentro do Frame
 label_banner = tk.Label(frame_logo, image=banner_logo)
-label_banner.pack(fill="x", expand=1)
+label_banner.pack(fill="x", expand=True)
 
 janela_incial.banner_logo = banner_logo
 

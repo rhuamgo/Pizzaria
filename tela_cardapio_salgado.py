@@ -8,7 +8,18 @@ import tela_confirmar_pedido
 
 Pizzas_adicionadas = []
 def abrir_cardapio_salgado(janela_categoria):
- 
+ def centralizando_Janela(janela, largura, altura):
+    #Pega o tamanho da tela em pixel 
+    largura_tela = janela.winfo_screenwidth() #essa função pergunta para SO do monitor e retorna o valor em largura e altura
+    altura_tela = janela.winfo_screenheight()
+    #Dide o tamanho e a largura da tela por 2 e subtrais com a divisão dos mesmo valores da janela
+    x = (largura_tela // 2) - (largura // 2)
+    y = (altura_tela // 2) - (altura // 2)
+    #passa o tamanho da tela posicionando ela no eixo x e y
+    janela.geometry(f"{largura}x{altura}+{x}+{y}")
+
+
+
  #Função para VOltar para categorias
  def voltar():
     janela_salgado.destroy()
@@ -115,11 +126,16 @@ def abrir_cardapio_salgado(janela_categoria):
     
  janela_salgado = tk.Toplevel(janela_categoria)
  janela_salgado.title("Cardapio Pizzas Salgadas")
- janela_salgado.geometry("650x600")
  janela_salgado.configure(background= '#eb4764')
  janela_salgado.resizable(False, False)
  janela_salgado.iconbitmap("img\\icon.ico")
   
+ largura_janela = 650
+ altura_janela = 600
+ centralizando_Janela(janela_salgado, largura_janela, altura_janela)
+
+
+
  #Criando frame da tela de pizzas salgadas
  frame=tk.Frame(janela_salgado, bd = 4, bg = '#c95b6e',
                      highlightbackground= '#c52f49', highlightthickness= 3 )

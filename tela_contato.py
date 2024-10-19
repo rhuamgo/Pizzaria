@@ -33,7 +33,7 @@ def abrir_contato(janela_incial):
 
 
  frame_contato=tk.Frame(janela_contato, bd = 4, bg = '#c95b6e',
-                     highlightbackground= '#c52f49', highlightthickness= 3 )
+                     highlightbackground= '#c52f49', highlightthickness= 0 )
  frame_contato.place(relx=0.02, rely=0.02, relwidth= 0.96, relheight = 0.96)
 
 

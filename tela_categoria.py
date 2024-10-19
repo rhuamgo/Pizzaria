@@ -37,9 +37,8 @@ def abrir_categoria(janela_incial):
      Pizzas_adicionadas = tela_cardapio_salgado.Pizzas_adicionadas
      if Pizzas_adicionadas != []:
          
-         print(Pizzas_adicionadas)
          janela_categoria.withdraw()
-         tela_confirmar_pedido.confirmar_pedido(janela_categoria,Pizzas_adicionadas)
+         tela_confirmar_pedido.confirmar_pedido(janela_categoria,Pizzas_adicionadas, janela_incial)
      else:
           messagebox.showinfo("ERRO",'Selecione ao menos um item antes de Continuar')
 
@@ -58,7 +57,7 @@ def abrir_categoria(janela_incial):
 
  #Criando frame da tela de categoria
  frame1=tk.Frame(janela_categoria, bd = 4, bg = '#c95b6e',
-                     highlightbackground= '#c52f49', highlightthickness= 3 )
+                     highlightbackground= '#c52f49', highlightthickness= 0 )
  frame1.place(relx=0.02, rely=0.02, relwidth= 0.96, relheight = 0.96)
 
  label = tk.Label(frame1, text="Escolha uma Categoria", bg= '#c52f49', fg='white'

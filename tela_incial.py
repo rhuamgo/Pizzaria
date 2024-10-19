@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import PhotoImage, messagebox
 import tela_login
-import tela_pedido
 import tela_contato
 import tela_categoria
 

@@ -2,9 +2,11 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 import tela_cardapio_salgado
+import tela_TipoPedido
 
 
-def confirmar_pedido(janela,pizzas):
+def confirmar_pedido(janela,pizzas, janelaIncial):
+ 
 
     def centralizando_Janela(janela, largura, altura):
         #Pega o tamanho da tela em pixel 
@@ -23,6 +25,27 @@ def confirmar_pedido(janela,pizzas):
         tela_cardapio_salgado.Pizzas_adicionadas =[]
         janela_confirmar.destroy()
         janela.deiconify()
+
+    def voltar():
+        
+        janela_confirmar.destroy()
+        janela.deiconify()
+
+    def finalizar_pedido():
+        itens = tw.get_children()
+        valores_tw = []
+        for item in itens:
+            valores = tw.item(item, "values")
+            valores_tw.append(valores)
+        if valores_tw == []:
+            messagebox.showerror("ERRO", "Adicione ao menos um item")
+            janela_confirmar.destroy()
+            janela.deiconify()
+            tela_cardapio_salgado.Pizzas_adicionadas = []
+            
+        janela_confirmar.withdraw()
+        tela_TipoPedido.abrir_TipoPedido(janela_confirmar, janelaIncial)
+
     def deletar():
         try:
             #Primeiro eu pego o primeiro item selecionado, depois eu guardo os valores em "valor" ai eu subtraio a qtd e guardo
@@ -101,6 +124,7 @@ def confirmar_pedido(janela,pizzas):
 
     lista = pizzas
 
+
     # Definindo o estilo personalizado para o Treeview
     estilo = ttk.Style()
     estilo.theme_use('default') 
@@ -136,16 +160,6 @@ def confirmar_pedido(janela,pizzas):
     # Inserindo os valores no Treeview
     for (sabor, tamanho, quantidade) in lista:
         tw.insert("", "end", values=(sabor, tamanho, quantidade))
-
-    #Botão Cancelar
-    botap_cancelar = tk.Button(janela_confirmar, text="Cancelar", bd=2, bg = '#c52f49' , fg = 'white' 
-                            , font = ('verdana', 8, 'bold'), command=cancelar)
-    botap_cancelar.place(x=100, y=520)
-
-    botap_deletar = tk.Button(janela_confirmar, text="Deletar", bd=2, bg = '#c52f49' , fg = 'white' 
-                            , font = ('verdana', 8, 'bold'), command=deletar)
-    botap_deletar.place(x=200, y=520)
-    
 
     #Pega as informações do Treeview, transforma em valores e guarda no array "valores_tw"
     itens = tw.get_children()
@@ -201,6 +215,27 @@ def confirmar_pedido(janela,pizzas):
     total =tk.Label(janela_confirmar, text=f'Total: R${quantidadeTotal},00',bd=4, bg= '#c52f49', fg='white'
                     , font = ("Arial Black", 14, 'bold'))
     total.place(x=250, y=400)
+
+
+
+    #Botão Cancelar
+    botap_cancelar = tk.Button(janela_confirmar, text="Cancelar", bd=2, bg = '#c52f49' , fg = 'white' 
+                            , font = ('verdana', 8, 'bold'), command=cancelar)
+    botap_cancelar.place(x=200, y=520)
+
+    botap_deletar = tk.Button(janela_confirmar, text="Deletar", bd=2, bg = '#c52f49' , fg = 'white' 
+                            , font = ('verdana', 8, 'bold'), command=deletar)
+    botap_deletar.place(x=320, y=520)
+    
+
+    botap_voltar = tk.Button(janela_confirmar, text="Voltar", bd=2, bg = '#c52f49' , fg = 'white' 
+                            , font = ('verdana', 8, 'bold'), command=voltar)
+    botap_voltar.place(x=100, y=520)
+
+
+    botap_finalizar = tk.Button(janela_confirmar, text="Finalizar Pedido", bd=2, bg = '#c52f49' , fg = 'white' 
+                            , font = ('verdana', 8, 'bold'), command=finalizar_pedido)
+    botap_finalizar.place(x=440, y=520)
 
 
     janela_confirmar.mainloop()
